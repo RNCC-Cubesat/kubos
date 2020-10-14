@@ -2,4 +2,4 @@ pumpkin-supmcu
 pumpkin-supmcu-kubos
 putdig-common
 graphene==2.1.8
-git+https://github.com/kubos/kubos&subdirectory=libs/kubos-service#egg=kubos-service
+kubos-service
