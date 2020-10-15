@@ -42,7 +42,7 @@ setuptools.setup(
     url='https://gitlab.com/pumpkin-space-systems/public/kubos/-/tree/master/services/pumpkin-mcu-service',
     packages=setuptools.find_packages(),
     entry_points={
-        'console_scripts': ['pumkin-mcu-service=pumkin_mcu_service.service:execute']
+        'console_scripts': ['pumpkin-mcu-service=pumpkin_mcu_service.service:execute']
     },
     classifiers=[
         'Programming Language :: Python :: 3',
