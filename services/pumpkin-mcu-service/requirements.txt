@@ -1,5 +1,5 @@
 pumpkin-supmcu
 pumpkin-supmcu-kubos
 putdig-common
-graphene==2.1.8
+graphene
 kubos-service
