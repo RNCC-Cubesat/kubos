@@ -4,9 +4,9 @@
 # Licensed under the Apache License, Version 2.0
 # See LICENSE file for details.
 
-"""
+'''
 main for Pumpkin MCU pumpkin_mcu_service
-"""
+'''
 
 import logging
 import sys
@@ -20,13 +20,13 @@ from kubos_service import http_service
 from kubos_service.config import Config
 from pumpkin_mcu_service import schema
 
-c = Config("pumpkin-mcu-pumpkin_mcu_service")
+c = Config('pumpkin-mcu-pumpkin_mcu_service')
 
 # Setup logging
-logger = logging.getLogger("pumpkin-mcu-pumpkin_mcu_service")
+logger = logging.getLogger('pumpkin-mcu-service')
 logger.setLevel(logging.DEBUG)
 handler = SysLogHandler(address='/dev/log', facility=SysLogHandler.LOG_DAEMON)
-formatter = logging.Formatter('pumpkin-mcu-pumpkin_mcu_service: %(message)s')
+formatter = logging.Formatter('pumpkin-mcu-service: %(message)s')
 handler.formatter = formatter
 logger.addHandler(handler)
 
@@ -36,7 +36,7 @@ stdout.setFormatter(formatter)
 logger.addHandler(stdout)
 
 # Load the bus definition from json file (see pumqry)
-file = Path(c.raw['bus_path'])
+file = Path(c.raw['bus_json']['path'])
 with file.open('r') as f:
     raw_definition = json.load(f)
     schema.BUS_DEFINITION = import_bus_telemetry_definition(raw_definition)

@@ -4,13 +4,13 @@ import os
 import setuptools
 
 try:
-    with open("README.md", "r") as fh:
+    with open('README.md', 'r') as fh:
         long_description = fh.read()
 except FileNotFoundError:
-    long_description = "A kubos service for interacting with a Pumpkin satellite bus"
+    long_description = 'A kubos service for interacting with a Pumpkin satellite bus'
 
 try:
-    with open("requirements.txt", 'r') as f:
+    with open('requirements.txt', 'r') as f:
         requirements = f.read()
         requirements = requirements.splitlines()
         requirements = [r for r in requirements if r.strip() != '']
@@ -32,22 +32,22 @@ else:
     version = '0.0.1'  # Makes sure the read the docs version can build.
 
 setuptools.setup(
-    name="pumpkin-mcu-service",
+    name='pumpkin-mcu-service',
     version=version,
-    author="James Womack, Austin Small",
-    author_email="info@pumpkininc.com",
-    description="Kubos service for interacting with Pumpkin a satellite bus",
+    author='James Womack, Austin Small',
+    author_email='info@pumpkininc.com',
+    description='Kubos service for interacting with Pumpkin a satellite bus',
     long_description=long_description,
-    long_description_content_type="text/markdown",
-    url="https://gitlab.com/pumpkin-space-systems/public/kubos/-/tree/master/services/pumpkin-mcu-service",
+    long_description_content_type='text/markdown',
+    url='https://gitlab.com/pumpkin-space-systems/public/kubos/-/tree/master/services/pumpkin-mcu-service',
     packages=setuptools.find_packages(),
     entry_points={
-        'console_scripts': ['pumkin-mcu-serviice=pumkin_mcu_service.service:execute']
+        'console_scripts': ['pumkin-mcu-service=pumkin_mcu_service.service:execute']
     },
     classifiers=[
-        "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
+        'Programming Language :: Python :: 3',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent',
     ],
     install_requires=requirements,
     python_requires='>=3.7',

@@ -19,7 +19,7 @@ from pumpkin_supmcu.kubos import I2CKubosMaster
 from pumpkin_supmcu.supmcu import SupMCUMaster
 from pumpkin_supmcu.supmcu import get_values
 
-logger = logging.getLogger("pumpkin-mcu-pumpkin_mcu_service")
+logger = logging.getLogger('pumpkin-mcu-pumpkin_mcu_service')
 
 BUS_DEFINITION: List[ModuleDefinition] = []  # BUS_DEFINITION global set in service.py
 I2C_BUS: int = 1
@@ -42,12 +42,12 @@ def normalize(s: str) -> str:
     """
     Normalizes a string by replacing any non-alphanumeric substrings with an underscore and making it lowercase.
     Examples:
-        "Firmware version" -> "firmware_version"
-        "Payload Currents in mA" -> "payload_currents_in_ma"
-        "Temp sensor 9 reading (0.1K)" -> "temp_sensor_9_reading_0_1K"
+        'Firmware version' -> 'firmware_version'
+        'Payload Currents in mA' -> 'payload_currents_in_ma'
+        'Temp sensor 9 reading (0.1K)' -> 'temp_sensor_9_reading_0_1K'
     """
-    s = re.sub(r"\W+\Z", "", s)   # remove any trailing non-alphanumeric substring
-    s = re.sub(r"[\W]+", "_", s)  # replace non-alphanumeric substrings with underscore
+    s = re.sub(r'\W+\Z', '', s)   # remove any trailing non-alphanumeric substring
+    s = re.sub(r'[\W]+', '_', s)  # replace non-alphanumeric substrings with underscore
     return s.lower()
 
 
@@ -64,18 +64,18 @@ class Query(graphene.ObjectType):
         count=graphene.Int())
     mcuTelemetry = graphene.JSONString(
         module=graphene.String(),
-        fields=graphene.List(graphene.String, default_value=["all"]))
+        fields=graphene.List(graphene.String, default_value=['all']))
 
     @staticmethod
     def resolve_ping(parent, info):
-        return "pong"
+        return 'pong'
 
     @staticmethod
     def resolve_moduleList(parent, info):
-        """
+        '''
         This allows discovery of which modules are present and what
         addresses they have.
-        """
+        '''
         return {mod.definition.name: {'address': mod.definition.address} for mod in BUS_DEFINITION}
 
     @staticmethod
@@ -104,7 +104,7 @@ class Query(graphene.ObjectType):
             bin_data = i2c_master.read(mod.definition.address, count)
             return bin_data.hex()
         except Exception as e:
-            logger.error(f"Failed to read {count} bytes from {module_name}: {e}")
+            logger.error(f'Failed to read {count} bytes from {module_name}: {e}')
             raise e
 
     @staticmethod
@@ -123,7 +123,7 @@ class Query(graphene.ObjectType):
                                             mod.definition.module_telemetry.values())
             telem = next((t for t in all_telemetry if normalize(t.name) == field), None)
             if telem is None:
-                raise KeyError(f"Could not resolve unknown field name {field}")
+                raise KeyError(f'Could not resolve unknown field name {field}')
             telemetry[field] = get_values(i2c_master, mod.definition.address, mod.definition.cmd_name, telem.idx,
                                           telem.format)
         return telemetry
@@ -151,7 +151,7 @@ class Passthrough(graphene.Mutation):
         try:
             sup_master.send_command(mod.definition.name, command)
         except Exception as e:
-            logger.error("Failed to send passthrough to {}: {}".format(module_name, e))
+            logger.error('Failed to send passthrough to {}: {}'.format(module_name, e))
             raise
 
 
