@@ -20,7 +20,7 @@ from kubos_service import http_service
 from kubos_service.config import Config
 from pumpkin_mcu_service import schema
 
-c = Config('pumpkin-mcu-pumpkin_mcu_service')
+c = Config('pumpkin-mcu-service')
 
 # Setup logging
 logger = logging.getLogger('pumpkin-mcu-service')
@@ -36,7 +36,7 @@ stdout.setFormatter(formatter)
 logger.addHandler(stdout)
 
 # Load the bus definition from json file (see pumqry)
-file = Path(c.raw['bus_json']['path'])
+file = Path(c.raw['bus_path'])
 with file.open('r') as f:
     raw_definition = json.load(f)
     schema.BUS_DEFINITION = import_bus_telemetry_definition(raw_definition)
