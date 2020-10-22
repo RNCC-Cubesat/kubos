@@ -37,9 +37,7 @@ logger.addHandler(stdout)
 
 # Load the bus definition from json file (see pumqry)
 file = Path(c.raw['bus_path'])
-with file.open('r') as f:
-    raw_definition = json.load(f)
-    schema.BUS_DEFINITION = import_bus_telemetry_definition(raw_definition)
+schema.BUS_DEFINITION = import_bus_telemetry_definition(file)
 
 
 def execute():
