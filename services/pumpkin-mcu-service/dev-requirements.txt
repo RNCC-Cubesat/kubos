@@ -7,3 +7,4 @@ kubos-service
 flask==0.12.2
 flask_graphql==1.4.1
 toml==0.9.3
+pumpkin-supmcu-i2cdriver
