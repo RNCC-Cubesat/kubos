@@ -64,6 +64,7 @@ class Query(graphene.ObjectType):
     ping = graphene.String()
     moduleList = graphene.JSONString()
     fieldList = graphene.List(graphene.String, module=graphene.String())
+    commandList = graphene.List(graphene.String, module=graphene.String())
     read = graphene.String(
         module=graphene.String(),
         count=graphene.Int())
@@ -84,10 +85,9 @@ class Query(graphene.ObjectType):
         return {mod.definition.name: {'address': mod.definition.address} for mod in BUS_DEFINITION}
 
     @staticmethod
-    def resolve_fieldList(parent, info, module) -> Union[List[str], Dict[str, str]]:
+    def resolve_fieldList(parent, info, module) -> List[str]:
         """
-        This allows discovery of which fields are available for a
-        specific module.
+        This allows discovery of which fields are available for a specific module.
         """
         fields: List[str] = []
         mod = get_module(module)
@@ -96,6 +96,14 @@ class Query(graphene.ObjectType):
         for _, item in mod.definition.module_telemetry.items():
             fields.append(normalize(item.name))
         return fields
+
+    @staticmethod
+    def resolve_commandList(parent, info, module) -> List[str]:
+        """
+        This allows discovery of which commands are available for a specific module.
+        """
+        mod = get_module(module)
+        return [cmd.get('name') for cmd in mod.definition.commands.values()]
 
     @staticmethod
     def resolve_read(parent, info, module, count):
