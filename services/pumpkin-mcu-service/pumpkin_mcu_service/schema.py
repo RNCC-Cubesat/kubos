@@ -186,7 +186,6 @@ class SendCommand(graphene.Mutation):
 
         mod = get_module(module)
         sup_master = SupMCUMaster(I2C_MASTER, [mod.definition for mod in BUS_DEFINITION])
-        print(mod.definition.commands.values())
         if validate:
             validate_command(command, mod.definition)
         sup_master.send_command(mod.definition.name, command)

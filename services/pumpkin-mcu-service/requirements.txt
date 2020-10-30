@@ -1,9 +1,9 @@
 pumpkin-supmcu==1.2.0
 pumpkin-supmcu-kubos==0.0.3
 putdig-common==0.2.0
-graphene==2.1.1
-graphql-relay==0.4.5
+graphene==2.1.8
+graphql-relay==2.0.1
 kubos-service
-flask==0.12.2
-flask_graphql==1.4.1
-toml==0.9.3
+flask==1.1.2
+flask_graphql==2.0.1
+toml==0.10.1
