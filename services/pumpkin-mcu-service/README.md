@@ -1,5 +1,4 @@
-Pumpkin MCU Service
-===================
+# Pumpkin MCU Service
 
 Hardware service for interacting with all Pumpkin Modules.
 
@@ -30,8 +29,7 @@ The default location of this file in kubos is `/home/system/etc/bus.json`.
 
 The bus definition file can be regenerated using the [pumqry](https://github.com/PumpkinSpace/PuTDIG-CLI) program with this command: `pumqry -t kubos -p 1 -e -d -f /home/system/etc/bus.json`
 
-Examples
---------
+## Examples
 
 Query for the available modules
 ```
@@ -68,22 +66,63 @@ query {
 }
 ```
 
-Send a command to a module:
+Send a commands to a module:
+```
+mutation {
+    sendCommand(module:"SIM", command:"SUP:LED ON") {
+        ok
+    }
+}
+```
+
+### More Examples
+
+Turn PIM power port 2 ON
+```
+mutation {
+    sendCommand(module:"PIM", command:"SUP:PORT:POW ON,2") {
+        ok
+    }
+}
+```
+
+Turn on BIM temp sensors and read them
+```
+mutation bim_temp_on {
+    sendCommand(module:"BIM", command:"BIM:TEMP:POW ON") { ok }
+}
+
+query get_temp_data {
+    mcuTelemetry(module:"BIM", fields:["temperature_0_1_k"])
+}
 
 ```
-  mutation {
-    sendCommand(module:"sim",command:"SUP:LED ON") {
-      ok
-    }
-  }
+
+Turn on AIM2's Novatel GPS and select its UART channel and enable passthrough
+```
+mutation gps_setup {
+    sendCommand(module:"AIM", command:"AIM:GPS:POW ON") { ok }
+    sendCommand(module:"AIM", command:"AIM:GPS:COMM UART0") { ok }
+    sendCommand(module:"AIM", command:"AIM:GPS:PASS ON") { ok }
+}
+```
+
+Turn on RHM2 globalstar radio and send a beacon
+```
+mutation radio_setup {
+    sendCommand(module:"RHM", command:"RHM:GS:POW ON") { ok }
+    sendCommand(module:"RHM", command:"RHM:GS:PASS ON") { ok }
+    sendCommand(module:"RHM", command:"RHM:GS:COMM I2C") { ok }
+    sendCommand(module:"RHM", command:"RHM:GS:SEND 50756D706B696E) { ok }   # send hex string "Pumpkin"
+}
 ```
 
 Send queries and mutations from the command line:
 
 ```
-  echo "query {moduleList}" | nc -uw1 127.0.0.1 8150
-  echo "query {fieldList(module:\"sim\")}" | nc -uw1 127.0.0.1 8150
-  echo "mutation {sendCommand(module:\"sim\",command:\"SUP:LED ON\"){ok}}" | nc -uw1 127.0.0.1 8150
+echo "query {moduleList}" | nc -uw1 127.0.0.1 8150
+echo "query {fieldList(module:\"sim\")}" | nc -uw1 127.0.0.1 8150
+echo "mutation {sendCommand(module:\"sim\",command:\"SUP:LED ON\"){ok}}" | nc -uw1 127.0.0.1 8150
 ```
 
 ## Testing
