@@ -1,0 +1,11 @@
+pumpkin-supmcu==1.2.0
+pumpkin-supmcu-kubos==0.0.3
+putdig-common==0.2.0
+graphene==2.1.8
+graphql-relay==2.0.1
+kubos-service
+flask==1.1.2
+flask_graphql==2.0.1
+toml
+pumpkin-supmcu-i2cdriver
+python-graphql-client==0.3.1
