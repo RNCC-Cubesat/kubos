@@ -12,6 +12,8 @@ from typing import List, Union, Dict, Any
 import logging
 import re
 import string
+from subprocess import run
+from time import sleep
 
 import graphene
 from putdig.common.types import ModuleDefinition, SupMCUModuleDefinition
@@ -192,11 +194,51 @@ class SendCommand(graphene.Mutation):
         return SendCommand(ok=True)
 
 
+class UsbOn(graphene.Mutation):
+    """
+    Turns on power to the BeagleBone Black's USB-A Host port.
+    """
+    ok = graphene.Boolean()
+
+    @staticmethod
+    def mutate(parent, info):
+        with open('/sys/bus/usb/drivers/usb/bind', 'w') as fp:
+            status = run(['echo', 'usb1'], stdout=fp)
+        if status != 0:
+            return UsbOn(ok=False)
+        sleep(1)
+        status = run(['devmem2', '0x47401c60', 'b', '0x01'])
+        if status != 0:
+            return UsbOn(ok=False)
+        return UsbOn(ok=True)
+
+
+class UsbOff(graphene.Mutation):
+    """
+    Turns off power to the BeagleBone Black's USB-A Host port.
+    """
+    ok = graphene.Boolean()
+
+    @staticmethod
+    def mutate(parent, info):
+        status = run(['devmem2', '0x47401c60', 'b', '0x00'])
+        if status != 0:
+            return UsbOff(ok=False)
+        sleep(1)
+        with open('/sys/bus/usb/drivers/usb/unbind', 'w') as fp:
+            status = run(['echo', 'usb1'], stdout=fp)
+        if status != 0:
+            return UsbOff(ok=False)
+        return UsbOff(ok=True)
+
+
 class Mutations(graphene.ObjectType):
     """
     Creates mutation endpoints exposed by graphene.
     """
     send_command = SendCommand.Field()
+    usb_on = UsbOn.Field()
+    usb_off = UsbOff.Field()
 
 
 def get_schema():
