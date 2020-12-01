@@ -204,13 +204,11 @@ class UsbOn(graphene.Mutation):
     def mutate(parent, info):
         with open('/sys/bus/usb/drivers/usb/bind', 'w') as fp:
             status = run(['echo', 'usb1'], stdout=fp)
-        if status != 0:
+        if status.returncode != 0:
             return UsbOn(ok=False)
         sleep(1)
         status = run(['devmem2', '0x47401c60', 'b', '0x01'])
-        if status != 0:
-            return UsbOn(ok=False)
-        return UsbOn(ok=True)
+        return UsbOff(status.returncode == 0)
 
 
 class UsbOff(graphene.Mutation):
@@ -222,14 +220,12 @@ class UsbOff(graphene.Mutation):
     @staticmethod
     def mutate(parent, info):
         status = run(['devmem2', '0x47401c60', 'b', '0x00'])
-        if status != 0:
+        if status.returncode != 0:
             return UsbOff(ok=False)
         sleep(1)
         with open('/sys/bus/usb/drivers/usb/unbind', 'w') as fp:
             status = run(['echo', 'usb1'], stdout=fp)
-        if status != 0:
-            return UsbOff(ok=False)
-        return UsbOff(ok=True)
+        return UsbOff(status.returncode == 0)
 
 
 class Mutations(graphene.ObjectType):
