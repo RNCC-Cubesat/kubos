@@ -3,6 +3,6 @@ ip = "0.0.0.0"
 port = 8150
 
 [pumpkin-mcu-service]
-bus_path = "/home/system/etc/bus.json"
+bus_path = "bus.json"
 i2c_type = "i2cdriver"
 i2c_port = "/dev/ttyUSB0"
