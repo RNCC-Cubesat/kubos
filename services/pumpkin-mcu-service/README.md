@@ -101,19 +101,19 @@ query get_temp_data {
 Turn on AIM2's Novatel GPS and select its UART channel and enable passthrough
 ```
 mutation gps_setup {
-    sendCommand(module:"AIM", command:"AIM:GPS:POW ON") { ok }
-    sendCommand(module:"AIM", command:"AIM:GPS:COMM UART0") { ok }
-    sendCommand(module:"AIM", command:"AIM:GPS:PASS ON") { ok }
+    gps_on: sendCommand(module:"AIM", command:"AIM:GPS:POW ON") { ok }
+    gps_comm: sendCommand(module:"AIM", command:"AIM:GPS:COMM UART0") { ok }
+    gps_pass: sendCommand(module:"AIM", command:"AIM:GPS:PASS ON") { ok }
 }
 ```
 
 Turn on RHM2 globalstar radio and send a beacon
 ```
 mutation radio_setup {
-    sendCommand(module:"RHM", command:"RHM:GS:POW ON") { ok }
-    sendCommand(module:"RHM", command:"RHM:GS:PASS ON") { ok }
-    sendCommand(module:"RHM", command:"RHM:GS:COMM I2C") { ok }
-    sendCommand(module:"RHM", command:"RHM:GS:SEND 50756D706B696E) { ok }   # send hex string "Pumpkin"
+    rad_on: sendCommand(module:"RHM", command:"RHM:GS:POW ON") { ok }
+    rad_pass: sendCommand(module:"RHM", command:"RHM:GS:PASS ON") { ok }
+    rad_comm: sendCommand(module:"RHM", command:"RHM:GS:COMM I2C") { ok }
+    rad_send: sendCommand(module:"RHM", command:"RHM:GS:SEND 50756D706B696E") { ok }   # send hex string "Pumpkin"
 }
 ```
 
@@ -135,3 +135,4 @@ For example, on a Linux host:
 
 
 In the tests folder, there is an integration test script that can be run to verify communication with all modules on the bus. It will retrieve what modules are present, request what fields are available for each module, and retrieve all available telemetry for each module. To run it, just execute `pytest`.
+
