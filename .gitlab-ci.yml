@@ -1,0 +1,66 @@
+default:
+  image: kubos/kubos-dev:latest
+
+variables:
+  PKG_CONFIG_ALLOW_CROSS: 0
+  CC: /usr/bin/bbb_toolchain/usr/bin/arm-linux-gcc
+  CXX: /usr/bin/bbb_toolchain/usr/bin/arm-linux-g++
+
+.not_on_master: &not_on_master
+  rules:
+    - if: '$CI_COMMIT_BRANCH != "master"'
+
+rust_check_x86:
+  <<: *not_on_master
+  script: cargo check --workspace --all-targets
+
+rust_check_mbm2:
+  <<: *not_on_master
+  script: cargo check --workspace --all-targets --target arm-unknown-linux-gnueabihf
+
+rust_check_iobc:
+  <<: *not_on_master
+  script: cargo check --workspace --all-targets --target armv5te-unknown-linux-gnueabi
+
+rust_test:
+  <<: *not_on_master
+  script:
+    - cd apis/app-api/python && pip3 install .
+    - cargo test --workspace --release
+    - cargo test --package kubos-app-service --test test_python_app --release -- --ignored
+
+rust_test_large_upload:
+  <<: *not_on_master
+  script: cargo run --bin large_upload --release
+
+
+rust_test_large_download:
+  <<: *not_on_master
+  script: cargo run --bin large_download --release
+
+rust_test_nosengine:
+  <<: *not_on_master
+  script:
+    - cd apis/nosengine-rust && cargo check
+    - cd test/integration/nosengine-rust && cargo run
+
+rust_fmt:
+  <<: *not_on_master
+  script: cargo fmt --all -- --check
+
+rust_clippy:
+  <<: *not_on_master
+  script: cargo clippy --workspace --all-targets
+
+non_rust_tests:
+  <<: *not_on_master
+  script:
+    -  python3 tools/ci_c.py
+    -  python3 hal/python-hal/i2c/test_i2c.py
+    -  cd hal/python-hal/i2c; python3 setup.py install
+    -  cd apis/app-api/python; python3 test_app_api.py
+
+tag:
+  script: ./deploy_tag.sh
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
