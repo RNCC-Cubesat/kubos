@@ -1,5 +1,4 @@
 default:
-  image: kubos/kubos-dev:latest
   tags:
     - kubos
 
