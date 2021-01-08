@@ -1,6 +1,8 @@
 default:
+  image: kubos/kubos-dev:latest
   tags:
     - kubos
+    - docker
 
 .arm_toolchain: &arm_toolchain
   variables:
