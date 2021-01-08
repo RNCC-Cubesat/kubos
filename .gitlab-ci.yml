@@ -1,5 +1,7 @@
 default:
   image: kubos/kubos-dev:latest
+  tags:
+    - kubos
 
 variables:
   PKG_CONFIG_ALLOW_CROSS: 0
