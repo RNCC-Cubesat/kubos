@@ -2,10 +2,12 @@ default:
   tags:
     - kubos
 
-variables:
-  PKG_CONFIG_ALLOW_CROSS: 0
-  CC: /usr/bin/bbb_toolchain/usr/bin/arm-linux-gcc
-  CXX: /usr/bin/bbb_toolchain/usr/bin/arm-linux-g++
+.arm_toolchain: &arm_toolchain
+  variables:
+    CC: /usr/bin/bbb_toolchain/usr/bin/arm-linux-gcc
+    CXX: /usr/bin/bbb_toolchain/usr/bin/arm-linux-g++
+    PKG_CONFIG_ALLOW_CROSS: 0
+
 
 .not_on_master: &not_on_master
   rules:
@@ -17,10 +19,12 @@ rust_check_x86:
 
 rust_check_mbm2:
   <<: *not_on_master
+  <<: *arm_toolchain
   script: cargo check --workspace --all-targets --target arm-unknown-linux-gnueabihf
 
 rust_check_iobc:
   <<: *not_on_master
+  <<: *arm_toolchain
   script: cargo check --workspace --all-targets --target armv5te-unknown-linux-gnueabi
 
 rust_test:
