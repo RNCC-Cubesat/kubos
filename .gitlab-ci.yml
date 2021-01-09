@@ -1,8 +1,13 @@
+stages:
+  - test
+  - deploy
+
 default:
   image: kubos/kubos-dev:latest
   tags:
     - kubos
     - docker
+  stage: test
 
 .not_on_master: &not_on_master
   rules:
@@ -47,7 +52,7 @@ rust_test_large_download:
 rust_test_nosengine:
   <<: *not_on_master
   script:
-    - cd apis/nosengine-rust && cargo check
+    - cd apis/nosengine-rust && cargo check; cd -
     - cd test/integration/nosengine-rust && cargo run
 
 rust_fmt:
@@ -63,10 +68,11 @@ non_rust_tests:
   script:
     -  python3 tools/ci_c.py
     -  python3 hal/python-hal/i2c/test_i2c.py
-    -  cd hal/python-hal/i2c; python3 setup.py install
+    -  cd hal/python-hal/i2c; python3 setup.py install; cd -
     -  cd apis/app-api/python; python3 test_app_api.py
 
 tag:
+  stage: deploy
   script: ./deploy_tag.sh
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
