@@ -7,7 +7,6 @@ default:
   tags:
     - kubos
     - docker
-  stage: test
 
 .not_on_master: &not_on_master
   rules:
