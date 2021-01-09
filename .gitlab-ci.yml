@@ -23,7 +23,7 @@ rust_check_mbm2:
 rust_check_iobc:
   <<: *not_on_master
   script: cargo check --workspace --all-targets --target armv5te-unknown-linux-gnueabi
-  environment:
+  variables:
     CC: /usr/bin/iobc_toolchain/usr/bin/arm-linux-gcc
     CXX: /usr/bin/iobc_toolchain/usr/bin/arm-linux-g++
     PKG_CONFIG_ALLOW_CROSS: 1
