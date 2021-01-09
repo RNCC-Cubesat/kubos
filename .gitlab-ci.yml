@@ -4,13 +4,6 @@ default:
     - kubos
     - docker
 
-.arm_toolchain: &arm_toolchain
-  variables:
-    CC: /usr/bin/bbb_toolchain/usr/bin/arm-linux-gcc
-    CXX: /usr/bin/bbb_toolchain/usr/bin/arm-linux-g++
-    PKG_CONFIG_ALLOW_CROSS: 1
-
-
 .not_on_master: &not_on_master
   rules:
     - if: '$CI_COMMIT_BRANCH != "master"'
@@ -21,13 +14,19 @@ rust_check_x86:
 
 rust_check_mbm2:
   <<: *not_on_master
-  <<: *arm_toolchain
   script: cargo check --workspace --all-targets --target arm-unknown-linux-gnueabihf
+  variables:
+    CC: /usr/bin/bbb_toolchain/usr/bin/arm-linux-gcc
+    CXX: /usr/bin/bbb_toolchain/usr/bin/arm-linux-g++
+    PKG_CONFIG_ALLOW_CROSS: 1
 
 rust_check_iobc:
   <<: *not_on_master
-  <<: *arm_toolchain
   script: cargo check --workspace --all-targets --target armv5te-unknown-linux-gnueabi
+  environment:
+    CC: /usr/bin/iobc_toolchain/usr/bin/arm-linux-gcc
+    CXX: /usr/bin/iobc_toolchain/usr/bin/arm-linux-g++
+    PKG_CONFIG_ALLOW_CROSS: 1
 
 rust_test:
   <<: *not_on_master
