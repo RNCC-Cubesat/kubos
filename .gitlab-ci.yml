@@ -73,6 +73,14 @@ non_rust_tests:
     -  cd apis/app-api/python; python3 test_app_api.py
 
 tag:
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )' # install ssh
+    - eval $(ssh-agent -s)  # run ssh-agent in docker
+    - echo "$KUBOS_BUILDER_PRIVATE_KEY" | tr -d '\r' | ssh-add -  # add the private key
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
   variables:
     GIT_AUTHOR_NAME: $GITLAB_USER_NAME
     GIT_AUTHOR_EMAIL: $GITLAB_USER_EMAIL
