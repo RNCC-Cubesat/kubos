@@ -1,0 +1,3167 @@
+[
+  {
+    "version": "BSM (on QSM) Rev D fw v1.3.0d \u0026 SupMCU Core v1.5.1a",
+    "definition": {
+      "name": "BSM",
+      "cmd_name": "BSM",
+      "address": 81,
+      "supmcu_telemetry": {
+        "0": {
+          "name": "Firmware version",
+          "telemetry_length": 77,
+          "idx": 0,
+          "format": "S",
+          "simulatable": 0
+        },
+        "1": {
+          "name": "SCPI cmds processed",
+          "telemetry_length": 21,
+          "idx": 1,
+          "format": "l",
+          "simulatable": 0
+        },
+        "2": {
+          "name": "SCPI errs processed",
+          "telemetry_length": 21,
+          "idx": 2,
+          "format": "l",
+          "simulatable": 0
+        },
+        "3": {
+          "name": "Voltage status (TBD)",
+          "telemetry_length": 21,
+          "idx": 3,
+          "format": "x,x,x,x",
+          "simulatable": 0
+        },
+        "4": {
+          "name": "SupMCU CPU self tests",
+          "telemetry_length": 35,
+          "idx": 4,
+          "format": "l,l,s,s,s",
+          "simulatable": 0
+        },
+        "5": {
+          "name": "Elapsed time in seconds",
+          "telemetry_length": 21,
+          "idx": 5,
+          "format": "l",
+          "simulatable": 0
+        },
+        "6": {
+          "name": "Elapsed context switches",
+          "telemetry_length": 21,
+          "idx": 6,
+          "format": "l",
+          "simulatable": 0
+        },
+        "7": {
+          "name": "Elapsed idling hooks",
+          "telemetry_length": 21,
+          "idx": 7,
+          "format": "l",
+          "simulatable": 0
+        },
+        "8": {
+          "name": "MCU load [%]",
+          "telemetry_length": 17,
+          "idx": 8,
+          "format": "f",
+          "simulatable": 0
+        },
+        "9": {
+          "name": "Module Serial Number",
+          "telemetry_length": 15,
+          "idx": 9,
+          "format": "s",
+          "simulatable": 0
+        },
+        "10": {
+          "name": "Module I2C Address",
+          "telemetry_length": 14,
+          "idx": 10,
+          "format": "x",
+          "simulatable": 0
+        },
+        "11": {
+          "name": "Oscillator Tuning Value",
+          "telemetry_length": 14,
+          "idx": 11,
+          "format": "t",
+          "simulatable": 0
+        },
+        "12": {
+          "name": "Number of NVM Write cycles",
+          "telemetry_length": 15,
+          "idx": 12,
+          "format": "n",
+          "simulatable": 0
+        },
+        "13": {
+          "name": "Last Processor Reset",
+          "telemetry_length": 15,
+          "idx": 13,
+          "format": "n",
+          "simulatable": 0
+        },
+        "14": {
+          "name": "Number Telem. Item [sup,mod]",
+          "telemetry_length": 17,
+          "idx": 14,
+          "format": "s,s",
+          "simulatable": 0
+        },
+        "15": {
+          "name": "SupMCU (CTMU) Temp [0.1K]",
+          "telemetry_length": 17,
+          "idx": 15,
+          "format": "s",
+          "simulatable": 0
+        },
+        "16": {
+          "name": "SupMCU Telemetry Simulated",
+          "telemetry_length": 15,
+          "idx": 16,
+          "format": "s",
+          "simulatable": 0
+        },
+        "17": {
+          "name": "Number Command Item",
+          "telemetry_length": 17,
+          "idx": 17,
+          "format": "s",
+          "simulatable": 0
+        }
+      },
+      "module_telemetry": {
+        "0": {
+          "name": "Payload Currents in mA",
+          "telemetry_length": 21,
+          "idx": 0,
+          "format": "s,s,s,s",
+          "simulatable": 1,
+          "defaults": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "1": {
+          "name": "Payload Shunt in micro Ohm",
+          "telemetry_length": 21,
+          "idx": 1,
+          "format": "s,s,s,s",
+          "simulatable": 0
+        },
+        "2": {
+          "name": "Payload Current limits in mA",
+          "telemetry_length": 21,
+          "idx": 2,
+          "format": "s,s,s,s",
+          "simulatable": 0
+        },
+        "3": {
+          "name": "BSM Status Register",
+          "telemetry_length": 14,
+          "idx": 3,
+          "format": "x",
+          "simulatable": 0
+        },
+        "4": {
+          "name": "Payload Overcurrents in mA",
+          "telemetry_length": 21,
+          "idx": 4,
+          "format": "s,s,s,s",
+          "simulatable": 1,
+          "defaults": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "5": {
+          "name": "Temp sensor 9 reading (0.1K)",
+          "telemetry_length": 15,
+          "idx": 5,
+          "format": "s",
+          "simulatable": 0
+        },
+        "6": {
+          "name": "Temp sensor 10 reading (0.1K)",
+          "telemetry_length": 15,
+          "idx": 6,
+          "format": "s",
+          "simulatable": 0
+        },
+        "7": {
+          "name": "Temp sensor 11 reading (0.1K)",
+          "telemetry_length": 15,
+          "idx": 7,
+          "format": "s",
+          "simulatable": 0
+        },
+        "8": {
+          "name": "Temp sensor 12 reading (0.1K)",
+          "telemetry_length": 15,
+          "idx": 8,
+          "format": "s",
+          "simulatable": 0
+        },
+        "9": {
+          "name": "External Override Enabled",
+          "telemetry_length": 14,
+          "idx": 9,
+          "format": "u",
+          "simulatable": 0
+        }
+      },
+      "commands": {
+        "0": {
+          "name": "SUPervisor:CLOCk",
+          "idx": 0
+        },
+        "1": {
+          "name": "SUPervisor:DEBug",
+          "idx": 1
+        },
+        "2": {
+          "name": "SUPervisor:I2C:RESet",
+          "idx": 2
+        },
+        "3": {
+          "name": "SUPervisor:LED",
+          "idx": 3
+        },
+        "4": {
+          "name": "SUPervisor:NVM",
+          "idx": 4
+        },
+        "5": {
+          "name": "SUPervisor:OSCillator",
+          "idx": 5
+        },
+        "6": {
+          "name": "SUPervisor:RESet",
+          "idx": 6
+        },
+        "7": {
+          "name": "SUPervisor:SELFtest",
+          "idx": 7
+        },
+        "8": {
+          "name": "SUPervisor:TELemetry?",
+          "idx": 8
+        },
+        "9": {
+          "name": "SUPervisor:CALibration?",
+          "idx": 9
+        },
+        "10": {
+          "name": "SUPervisor:CALibration",
+          "idx": 10
+        },
+        "11": {
+          "name": "SUPervisor:COMmands?",
+          "idx": 11
+        },
+        "12": {
+          "name": "SUPervisor:TELemetry",
+          "idx": 12
+        },
+        "13": {
+          "name": "SUPervisor:TELemetry:SIMulate",
+          "idx": 13
+        },
+        "14": {
+          "name": "BSM:PORT:POWer",
+          "idx": 14
+        },
+        "15": {
+          "name": "BSM:NVM",
+          "idx": 15
+        },
+        "16": {
+          "name": "BSM:TELemetry?",
+          "idx": 16
+        },
+        "17": {
+          "name": "BSM:DEBug",
+          "idx": 17
+        },
+        "18": {
+          "name": "BSM:TELemetry",
+          "idx": 18
+        }
+      }
+    }
+  },
+  {
+    "version": "BIM Rev B fw v1.3.0b \u0026 SupMCU Core v1.5.1a",
+    "definition": {
+      "name": "BIM",
+      "cmd_name": "BIM",
+      "address": 82,
+      "supmcu_telemetry": {
+        "0": {
+          "name": "Firmware version",
+          "telemetry_length": 77,
+          "idx": 0,
+          "format": "S",
+          "simulatable": false
+        },
+        "1": {
+          "name": "SCPI cmds processed",
+          "telemetry_length": 21,
+          "idx": 1,
+          "format": "l",
+          "simulatable": false
+        },
+        "2": {
+          "name": "SCPI errs processed",
+          "telemetry_length": 21,
+          "idx": 2,
+          "format": "l",
+          "simulatable": false
+        },
+        "3": {
+          "name": "Voltage status (TBD)",
+          "telemetry_length": 21,
+          "idx": 3,
+          "format": "x,x,x,x",
+          "simulatable": false
+        },
+        "4": {
+          "name": "SupMCU CPU self tests",
+          "telemetry_length": 35,
+          "idx": 4,
+          "format": "l,l,s,s,s",
+          "simulatable": false
+        },
+        "5": {
+          "name": "Elapsed time in seconds",
+          "telemetry_length": 21,
+          "idx": 5,
+          "format": "l",
+          "simulatable": false
+        },
+        "6": {
+          "name": "Elapsed context switches",
+          "telemetry_length": 21,
+          "idx": 6,
+          "format": "l",
+          "simulatable": false
+        },
+        "7": {
+          "name": "Elapsed idling hooks",
+          "telemetry_length": 21,
+          "idx": 7,
+          "format": "l",
+          "simulatable": false
+        },
+        "8": {
+          "name": "MCU load [%]",
+          "telemetry_length": 17,
+          "idx": 8,
+          "format": "f",
+          "simulatable": false
+        },
+        "9": {
+          "name": "Module Serial Number",
+          "telemetry_length": 15,
+          "idx": 9,
+          "format": "s",
+          "simulatable": false
+        },
+        "10": {
+          "name": "Module I2C Address",
+          "telemetry_length": 14,
+          "idx": 10,
+          "format": "x",
+          "simulatable": false
+        },
+        "11": {
+          "name": "Oscillator Tuning Value",
+          "telemetry_length": 14,
+          "idx": 11,
+          "format": "t",
+          "simulatable": false
+        },
+        "12": {
+          "name": "Number of NVM Write cycles",
+          "telemetry_length": 15,
+          "idx": 12,
+          "format": "n",
+          "simulatable": false
+        },
+        "13": {
+          "name": "Last Processor Reset",
+          "telemetry_length": 15,
+          "idx": 13,
+          "format": "n",
+          "simulatable": false
+        },
+        "14": {
+          "name": "Number Telem. Item [sup,mod]",
+          "telemetry_length": 17,
+          "idx": 14,
+          "format": "s,s",
+          "simulatable": false
+        },
+        "15": {
+          "name": "SupMCU (CTMU) Temp [0.1K]",
+          "telemetry_length": 17,
+          "idx": 15,
+          "format": "s",
+          "simulatable": false
+        },
+        "16": {
+          "name": "SupMCU Telemetry Simulated",
+          "telemetry_length": 15,
+          "idx": 16,
+          "format": "s",
+          "simulatable": false
+        },
+        "17": {
+          "name": "Number Command Item",
+          "telemetry_length": 17,
+          "idx": 17,
+          "format": "s",
+          "simulatable": false
+        }
+      },
+      "module_telemetry": {
+        "0": {
+          "name": "Temperature [0.1 K]",
+          "telemetry_length": 25,
+          "idx": 0,
+          "format": "s,s,s,s,s,s",
+          "simulatable": false
+        },
+        "1": {
+          "name": "UART Status",
+          "telemetry_length": 19,
+          "idx": 1,
+          "format": "s,s,s",
+          "simulatable": false
+        },
+        "2": {
+          "name": "IMU Data",
+          "telemetry_length": 25,
+          "idx": 2,
+          "format": "n,n,n,n,n,n",
+          "simulatable": false
+        },
+        "3": {
+          "name": "Pin Puller Status",
+          "telemetry_length": 14,
+          "idx": 3,
+          "format": "x",
+          "simulatable": false
+        }
+      },
+      "commands": {
+        "0": {
+          "name": "SUPervisor:CLOCk",
+          "idx": 0
+        },
+        "1": {
+          "name": "SUPervisor:DEBug",
+          "idx": 1
+        },
+        "2": {
+          "name": "SUPervisor:I2C:RESet",
+          "idx": 2
+        },
+        "3": {
+          "name": "SUPervisor:LED",
+          "idx": 3
+        },
+        "4": {
+          "name": "SUPervisor:NVM",
+          "idx": 4
+        },
+        "5": {
+          "name": "SUPervisor:OSCillator",
+          "idx": 5
+        },
+        "6": {
+          "name": "SUPervisor:RESet",
+          "idx": 6
+        },
+        "7": {
+          "name": "SUPervisor:SELFtest",
+          "idx": 7
+        },
+        "8": {
+          "name": "SUPervisor:TELemetry?",
+          "idx": 8
+        },
+        "9": {
+          "name": "SUPervisor:CALibration?",
+          "idx": 9
+        },
+        "10": {
+          "name": "SUPervisor:CALibration",
+          "idx": 10
+        },
+        "11": {
+          "name": "SUPervisor:COMmands?",
+          "idx": 11
+        },
+        "12": {
+          "name": "BIM:EEprom:I2C",
+          "idx": 12
+        },
+        "13": {
+          "name": "BIM:ETHernet:I2C",
+          "idx": 13
+        },
+        "14": {
+          "name": "BIM:ETHernet:MODE",
+          "idx": 14
+        },
+        "15": {
+          "name": "BIM:ETHernet:POWer",
+          "idx": 15
+        },
+        "16": {
+          "name": "BIM:ETHernet:RESet",
+          "idx": 16
+        },
+        "17": {
+          "name": "BIM:EXTLED",
+          "idx": 17
+        },
+        "18": {
+          "name": "BIM:IMU:POWer",
+          "idx": 18
+        },
+        "19": {
+          "name": "BIM:NVM",
+          "idx": 19
+        },
+        "20": {
+          "name": "BIM:TELemetry?",
+          "idx": 20
+        },
+        "21": {
+          "name": "BIM:TEMP:POWer",
+          "idx": 21
+        },
+        "22": {
+          "name": "BIM:TINI",
+          "idx": 22
+        },
+        "23": {
+          "name": "BIM:UART:POWer",
+          "idx": 23
+        },
+        "24": {
+          "name": "BIM:WDT",
+          "idx": 24
+        },
+        "25": {
+          "name": "BIM:DEBug",
+          "idx": 25
+        },
+        "26": {
+          "name": "BIM:CALibration",
+          "idx": 26
+        },
+        "27": {
+          "name": "BIM:CALibration?",
+          "idx": 27
+        }
+      }
+    }
+  },
+  {
+    "version": "PIM Rev D fw v1.3.0a \u0026 SupMCU Core v1.5.1a",
+    "definition": {
+      "name": "PIM",
+      "cmd_name": "PIM",
+      "address": 83,
+      "supmcu_telemetry": {
+        "0": {
+          "name": "Firmware version",
+          "telemetry_length": 77,
+          "idx": 0,
+          "format": "S",
+          "simulatable": false
+        },
+        "1": {
+          "name": "SCPI cmds processed",
+          "telemetry_length": 21,
+          "idx": 1,
+          "format": "l",
+          "simulatable": false
+        },
+        "2": {
+          "name": "SCPI errs processed",
+          "telemetry_length": 21,
+          "idx": 2,
+          "format": "l",
+          "simulatable": false
+        },
+        "3": {
+          "name": "Voltage status (TBD)",
+          "telemetry_length": 21,
+          "idx": 3,
+          "format": "x,x,x,x",
+          "simulatable": false
+        },
+        "4": {
+          "name": "SupMCU CPU self tests",
+          "telemetry_length": 35,
+          "idx": 4,
+          "format": "l,l,s,s,s",
+          "simulatable": false
+        },
+        "5": {
+          "name": "Elapsed time in seconds",
+          "telemetry_length": 21,
+          "idx": 5,
+          "format": "l",
+          "simulatable": false
+        },
+        "6": {
+          "name": "Elapsed context switches",
+          "telemetry_length": 21,
+          "idx": 6,
+          "format": "l",
+          "simulatable": false
+        },
+        "7": {
+          "name": "Elapsed idling hooks",
+          "telemetry_length": 21,
+          "idx": 7,
+          "format": "l",
+          "simulatable": false
+        },
+        "8": {
+          "name": "MCU load [%]",
+          "telemetry_length": 17,
+          "idx": 8,
+          "format": "f",
+          "simulatable": false
+        },
+        "9": {
+          "name": "Module Serial Number",
+          "telemetry_length": 15,
+          "idx": 9,
+          "format": "s",
+          "simulatable": false
+        },
+        "10": {
+          "name": "Module I2C Address",
+          "telemetry_length": 14,
+          "idx": 10,
+          "format": "x",
+          "simulatable": false
+        },
+        "11": {
+          "name": "Oscillator Tuning Value",
+          "telemetry_length": 14,
+          "idx": 11,
+          "format": "t",
+          "simulatable": false
+        },
+        "12": {
+          "name": "Number of NVM Write cycles",
+          "telemetry_length": 15,
+          "idx": 12,
+          "format": "n",
+          "simulatable": false
+        },
+        "13": {
+          "name": "Last Processor Reset",
+          "telemetry_length": 15,
+          "idx": 13,
+          "format": "n",
+          "simulatable": false
+        },
+        "14": {
+          "name": "Number Telem. Item [sup,mod]",
+          "telemetry_length": 17,
+          "idx": 14,
+          "format": "s,s",
+          "simulatable": false
+        },
+        "15": {
+          "name": "SupMCU (CTMU) Temp [0.1K]",
+          "telemetry_length": 17,
+          "idx": 15,
+          "format": "s",
+          "simulatable": false
+        },
+        "16": {
+          "name": "SupMCU Telemetry Simulated",
+          "telemetry_length": 15,
+          "idx": 16,
+          "format": "s",
+          "simulatable": false
+        },
+        "17": {
+          "name": "Number Command Item",
+          "telemetry_length": 17,
+          "idx": 17,
+          "format": "s",
+          "simulatable": false
+        }
+      },
+      "module_telemetry": {
+        "0": {
+          "name": "Payload Currents [mA]",
+          "telemetry_length": 21,
+          "idx": 0,
+          "format": "s,s,s,s",
+          "simulatable": false
+        },
+        "1": {
+          "name": "Payload Shunt [micro Ohm]",
+          "telemetry_length": 21,
+          "idx": 1,
+          "format": "s,s,s,s",
+          "simulatable": false
+        },
+        "2": {
+          "name": "Payload Current limits [mA]",
+          "telemetry_length": 21,
+          "idx": 2,
+          "format": "s,s,s,s",
+          "simulatable": false
+        },
+        "3": {
+          "name": "PIM Status Register",
+          "telemetry_length": 14,
+          "idx": 3,
+          "format": "x",
+          "simulatable": false
+        },
+        "4": {
+          "name": "Payload Overcurrents [mA]",
+          "telemetry_length": 21,
+          "idx": 4,
+          "format": "s,s,s,s",
+          "simulatable": false
+        },
+        "5": {
+          "name": "Payload Voltages [mV]",
+          "telemetry_length": 21,
+          "idx": 5,
+          "format": "s,s,s,s",
+          "simulatable": false
+        }
+      },
+      "commands": {
+        "0": {
+          "name": "SUPervisor:CLOCk",
+          "idx": 0
+        },
+        "1": {
+          "name": "SUPervisor:DEBug",
+          "idx": 1
+        },
+        "2": {
+          "name": "SUPervisor:I2C:RESet",
+          "idx": 2
+        },
+        "3": {
+          "name": "SUPervisor:LED",
+          "idx": 3
+        },
+        "4": {
+          "name": "SUPervisor:NVM",
+          "idx": 4
+        },
+        "5": {
+          "name": "SUPervisor:OSCillator",
+          "idx": 5
+        },
+        "6": {
+          "name": "SUPervisor:RESet",
+          "idx": 6
+        },
+        "7": {
+          "name": "SUPervisor:SELFtest",
+          "idx": 7
+        },
+        "8": {
+          "name": "SUPervisor:TELemetry?",
+          "idx": 8
+        },
+        "9": {
+          "name": "SUPervisor:CALibration?",
+          "idx": 9
+        },
+        "10": {
+          "name": "SUPervisor:CALibration",
+          "idx": 10
+        },
+        "11": {
+          "name": "SUPervisor:COMmands?",
+          "idx": 11
+        },
+        "12": {
+          "name": "PIM:ETHernet",
+          "idx": 12
+        },
+        "13": {
+          "name": "PIM:LED",
+          "idx": 13
+        },
+        "14": {
+          "name": "PIM:PORT:POWer",
+          "idx": 14
+        },
+        "15": {
+          "name": "PIM:NVM",
+          "idx": 15
+        },
+        "16": {
+          "name": "PIM:TELemetry?",
+          "idx": 16
+        },
+        "17": {
+          "name": "PIM:DEBug",
+          "idx": 17
+        },
+        "18": {
+          "name": "PIM:CALibration",
+          "idx": 18
+        },
+        "19": {
+          "name": "PIM:CALibration?",
+          "idx": 19
+        }
+      }
+    }
+  },
+  {
+    "version": "DCPS Rev B fw v1.7.2a \u0026 SupMCU Core v1.5.1a",
+    "definition": {
+      "name": "DCPS",
+      "cmd_name": "DCPS",
+      "address": 84,
+      "supmcu_telemetry": {
+        "0": {
+          "name": "Firmware version",
+          "telemetry_length": 77,
+          "idx": 0,
+          "format": "S",
+          "simulatable": false
+        },
+        "1": {
+          "name": "SCPI cmds processed",
+          "telemetry_length": 21,
+          "idx": 1,
+          "format": "l",
+          "simulatable": false
+        },
+        "2": {
+          "name": "SCPI errs processed",
+          "telemetry_length": 21,
+          "idx": 2,
+          "format": "l",
+          "simulatable": false
+        },
+        "3": {
+          "name": "Voltage status (TBD)",
+          "telemetry_length": 21,
+          "idx": 3,
+          "format": "x,x,x,x",
+          "simulatable": false
+        },
+        "4": {
+          "name": "SupMCU CPU self tests",
+          "telemetry_length": 35,
+          "idx": 4,
+          "format": "l,l,s,s,s",
+          "simulatable": false
+        },
+        "5": {
+          "name": "Elapsed time in seconds",
+          "telemetry_length": 21,
+          "idx": 5,
+          "format": "l",
+          "simulatable": false
+        },
+        "6": {
+          "name": "Elapsed context switches",
+          "telemetry_length": 21,
+          "idx": 6,
+          "format": "l",
+          "simulatable": false
+        },
+        "7": {
+          "name": "Elapsed idling hooks",
+          "telemetry_length": 21,
+          "idx": 7,
+          "format": "l",
+          "simulatable": false
+        },
+        "8": {
+          "name": "MCU load [%]",
+          "telemetry_length": 17,
+          "idx": 8,
+          "format": "f",
+          "simulatable": false
+        },
+        "9": {
+          "name": "Module Serial Number",
+          "telemetry_length": 15,
+          "idx": 9,
+          "format": "s",
+          "simulatable": false
+        },
+        "10": {
+          "name": "Module I2C Address",
+          "telemetry_length": 14,
+          "idx": 10,
+          "format": "x",
+          "simulatable": false
+        },
+        "11": {
+          "name": "Oscillator Tuning Value",
+          "telemetry_length": 14,
+          "idx": 11,
+          "format": "t",
+          "simulatable": false
+        },
+        "12": {
+          "name": "Number of NVM Write cycles",
+          "telemetry_length": 15,
+          "idx": 12,
+          "format": "n",
+          "simulatable": false
+        },
+        "13": {
+          "name": "Last Processor Reset",
+          "telemetry_length": 15,
+          "idx": 13,
+          "format": "n",
+          "simulatable": false
+        },
+        "14": {
+          "name": "Number Telem. Item [sup,mod]",
+          "telemetry_length": 17,
+          "idx": 14,
+          "format": "s,s",
+          "simulatable": false
+        },
+        "15": {
+          "name": "SupMCU (CTMU) Temp [0.1K]",
+          "telemetry_length": 17,
+          "idx": 15,
+          "format": "s",
+          "simulatable": false
+        },
+        "16": {
+          "name": "SupMCU Telemetry Simulated",
+          "telemetry_length": 15,
+          "idx": 16,
+          "format": "s",
+          "simulatable": false
+        },
+        "17": {
+          "name": "Number Command Item",
+          "telemetry_length": 17,
+          "idx": 17,
+          "format": "s",
+          "simulatable": false
+        }
+      },
+      "module_telemetry": {
+        "0": {
+          "name": "SAI1 Converter Data",
+          "telemetry_length": 26,
+          "idx": 0,
+          "format": "s,s,n,n,x,d",
+          "simulatable": false
+        },
+        "1": {
+          "name": "SAI2 Converter Data",
+          "telemetry_length": 26,
+          "idx": 1,
+          "format": "s,s,n,n,x,d",
+          "simulatable": false
+        },
+        "2": {
+          "name": "SAI3 Converter Data",
+          "telemetry_length": 26,
+          "idx": 2,
+          "format": "s,s,n,n,x,d",
+          "simulatable": false
+        },
+        "3": {
+          "name": "SAI4 Converter Data",
+          "telemetry_length": 26,
+          "idx": 3,
+          "format": "s,s,n,n,x,d",
+          "simulatable": false
+        },
+        "4": {
+          "name": "SAI5 Converter Data",
+          "telemetry_length": 26,
+          "idx": 4,
+          "format": "s,s,n,n,x,d",
+          "simulatable": false
+        },
+        "5": {
+          "name": "SAI6 Converter Data",
+          "telemetry_length": 26,
+          "idx": 5,
+          "format": "s,s,n,n,x,d",
+          "simulatable": false
+        },
+        "6": {
+          "name": "BATT1 Converter Data",
+          "telemetry_length": 26,
+          "idx": 6,
+          "format": "s,s,n,n,x,d",
+          "simulatable": false
+        },
+        "7": {
+          "name": "BATT2 Converter Data",
+          "telemetry_length": 26,
+          "idx": 7,
+          "format": "s,s,n,n,x,d",
+          "simulatable": false
+        },
+        "8": {
+          "name": "3V3 Converter Data",
+          "telemetry_length": 26,
+          "idx": 8,
+          "format": "s,s,n,n,x,d",
+          "simulatable": false
+        },
+        "9": {
+          "name": "5V Converter Data",
+          "telemetry_length": 26,
+          "idx": 9,
+          "format": "s,s,n,n,x,d",
+          "simulatable": false
+        },
+        "10": {
+          "name": "12V Converter Data",
+          "telemetry_length": 26,
+          "idx": 10,
+          "format": "s,s,n,n,x,d",
+          "simulatable": false
+        },
+        "11": {
+          "name": "AUX Converter Data",
+          "telemetry_length": 26,
+          "idx": 11,
+          "format": "s,s,n,n,x,d",
+          "simulatable": false
+        },
+        "12": {
+          "name": "VREF1 Converter Data",
+          "telemetry_length": 17,
+          "idx": 12,
+          "format": "s,s",
+          "simulatable": false
+        },
+        "13": {
+          "name": "VREF2 Converter Data",
+          "telemetry_length": 17,
+          "idx": 13,
+          "format": "s,s",
+          "simulatable": false
+        },
+        "14": {
+          "name": "VREF3 Converter Data",
+          "telemetry_length": 17,
+          "idx": 14,
+          "format": "s,s",
+          "simulatable": false
+        },
+        "15": {
+          "name": "VREF4 Converter Data",
+          "telemetry_length": 17,
+          "idx": 15,
+          "format": "s,s",
+          "simulatable": false
+        },
+        "16": {
+          "name": "VREF5 Converter Data",
+          "telemetry_length": 17,
+          "idx": 16,
+          "format": "s,s",
+          "simulatable": false
+        },
+        "17": {
+          "name": "HSK_N5V VRef Data",
+          "telemetry_length": 17,
+          "idx": 17,
+          "format": "s,s",
+          "simulatable": false
+        },
+        "18": {
+          "name": "CORE_1V5 VRef Data",
+          "telemetry_length": 17,
+          "idx": 18,
+          "format": "s,s",
+          "simulatable": false
+        },
+        "19": {
+          "name": "HSK_3V3 VRef Data",
+          "telemetry_length": 17,
+          "idx": 19,
+          "format": "s,s",
+          "simulatable": false
+        },
+        "20": {
+          "name": "HSK_5V VRef Data",
+          "telemetry_length": 17,
+          "idx": 20,
+          "format": "s,s",
+          "simulatable": false
+        },
+        "21": {
+          "name": "HSK_10V VRef Data",
+          "telemetry_length": 17,
+          "idx": 21,
+          "format": "s,s",
+          "simulatable": false
+        },
+        "22": {
+          "name": "RING1 VRef Data",
+          "telemetry_length": 17,
+          "idx": 22,
+          "format": "s,s",
+          "simulatable": false
+        },
+        "23": {
+          "name": "RING2 VRef Data",
+          "telemetry_length": 17,
+          "idx": 23,
+          "format": "s,s",
+          "simulatable": false
+        },
+        "24": {
+          "name": "RING3 VRef Data",
+          "telemetry_length": 17,
+          "idx": 24,
+          "format": "s,s",
+          "simulatable": false
+        },
+        "25": {
+          "name": "SAI1 I/O [100mK]",
+          "telemetry_length": 15,
+          "idx": 25,
+          "format": "n",
+          "simulatable": false
+        },
+        "26": {
+          "name": "SAI2 I/O [100mK]",
+          "telemetry_length": 15,
+          "idx": 26,
+          "format": "n",
+          "simulatable": false
+        },
+        "27": {
+          "name": "SAI3 I/O [100mK]",
+          "telemetry_length": 15,
+          "idx": 27,
+          "format": "n",
+          "simulatable": false
+        },
+        "28": {
+          "name": "SAI4 I/O [100mK]",
+          "telemetry_length": 15,
+          "idx": 28,
+          "format": "n",
+          "simulatable": false
+        },
+        "29": {
+          "name": "SAI5A I/O [100mK]",
+          "telemetry_length": 15,
+          "idx": 29,
+          "format": "n",
+          "simulatable": false
+        },
+        "30": {
+          "name": "SAI5B I/O [100mK]",
+          "telemetry_length": 15,
+          "idx": 30,
+          "format": "n",
+          "simulatable": false
+        },
+        "31": {
+          "name": "SAI6A I/O [100mK]",
+          "telemetry_length": 15,
+          "idx": 31,
+          "format": "n",
+          "simulatable": false
+        },
+        "32": {
+          "name": "SAI6B I/O [100mK]",
+          "telemetry_length": 15,
+          "idx": 32,
+          "format": "n",
+          "simulatable": false
+        },
+        "33": {
+          "name": "SNS VUSB [mV]",
+          "telemetry_length": 15,
+          "idx": 33,
+          "format": "s",
+          "simulatable": false
+        },
+        "34": {
+          "name": "-RESET voltage [mV]",
+          "telemetry_length": 15,
+          "idx": 34,
+          "format": "s",
+          "simulatable": false
+        },
+        "35": {
+          "name": "SNS VREF 4096 mV [mV]",
+          "telemetry_length": 15,
+          "idx": 35,
+          "format": "s",
+          "simulatable": false
+        },
+        "36": {
+          "name": "Read value of register requested",
+          "telemetry_length": 14,
+          "idx": 36,
+          "format": "x",
+          "simulatable": false
+        },
+        "37": {
+          "name": "FGPA Version number.",
+          "telemetry_length": 16,
+          "idx": 37,
+          "format": "c.c.c",
+          "simulatable": false
+        },
+        "38": {
+          "name": "BATT1 Charging Current [mA], Cha",
+          "telemetry_length": 18,
+          "idx": 38,
+          "format": "n,s,u",
+          "simulatable": false
+        },
+        "39": {
+          "name": "BATT2 Charging Current [mA], Cha",
+          "telemetry_length": 18,
+          "idx": 39,
+          "format": "n,s,u",
+          "simulatable": false
+        },
+        "40": {
+          "name": "Register Read Address and Value",
+          "telemetry_length": 17,
+          "idx": 40,
+          "format": "z,z",
+          "simulatable": false
+        },
+        "41": {
+          "name": "Dosimeter [mGy]",
+          "telemetry_length": 15,
+          "idx": 41,
+          "format": "s",
+          "simulatable": false
+        }
+      },
+      "commands": {
+        "0": {
+          "name": "SUPervisor:CLOCk",
+          "idx": 0
+        },
+        "1": {
+          "name": "SUPervisor:DEBug",
+          "idx": 1
+        },
+        "2": {
+          "name": "SUPervisor:I2C:RESet",
+          "idx": 2
+        },
+        "3": {
+          "name": "SUPervisor:LED",
+          "idx": 3
+        },
+        "4": {
+          "name": "SUPervisor:NVM",
+          "idx": 4
+        },
+        "5": {
+          "name": "SUPervisor:OSCillator",
+          "idx": 5
+        },
+        "6": {
+          "name": "SUPervisor:RESet",
+          "idx": 6
+        },
+        "7": {
+          "name": "SUPervisor:SELFtest",
+          "idx": 7
+        },
+        "8": {
+          "name": "SUPervisor:TELemetry?",
+          "idx": 8
+        },
+        "9": {
+          "name": "SUPervisor:CALibration?",
+          "idx": 9
+        },
+        "10": {
+          "name": "SUPervisor:CALibration",
+          "idx": 10
+        },
+        "11": {
+          "name": "SUPervisor:COMmands?",
+          "idx": 11
+        },
+        "12": {
+          "name": "DCPS:BUS",
+          "idx": 12
+        },
+        "13": {
+          "name": "DCPS:DEBug",
+          "idx": 13
+        },
+        "14": {
+          "name": "DCPS:FPGA",
+          "idx": 14
+        },
+        "15": {
+          "name": "DCPS:NVM",
+          "idx": 15
+        },
+        "16": {
+          "name": "DCPS:REad",
+          "idx": 16
+        },
+        "17": {
+          "name": "DCPS:SAI",
+          "idx": 17
+        },
+        "18": {
+          "name": "DCPS:TELemetry?",
+          "idx": 18
+        },
+        "19": {
+          "name": "DCPS:WRite",
+          "idx": 19
+        },
+        "20": {
+          "name": "DCPS:CALibration",
+          "idx": 20
+        },
+        "21": {
+          "name": "DCPS:CALibration?",
+          "idx": 21
+        }
+      }
+    }
+  },
+  {
+    "version": "GPSRM (on QSM) Rev D fw v1.3.1b \u0026 SupMCU Core v1.5.1a",
+    "definition": {
+      "name": "GPS",
+      "cmd_name": "GPS",
+      "address": 85,
+      "supmcu_telemetry": {
+        "0": {
+          "name": "Firmware version",
+          "telemetry_length": 77,
+          "idx": 0,
+          "format": "S",
+          "simulatable": 0
+        },
+        "1": {
+          "name": "SCPI cmds processed",
+          "telemetry_length": 21,
+          "idx": 1,
+          "format": "l",
+          "simulatable": 0
+        },
+        "2": {
+          "name": "SCPI errs processed",
+          "telemetry_length": 21,
+          "idx": 2,
+          "format": "l",
+          "simulatable": 0
+        },
+        "3": {
+          "name": "Voltage status (TBD)",
+          "telemetry_length": 21,
+          "idx": 3,
+          "format": "x,x,x,x",
+          "simulatable": 0
+        },
+        "4": {
+          "name": "SupMCU CPU self tests",
+          "telemetry_length": 35,
+          "idx": 4,
+          "format": "l,l,s,s,s",
+          "simulatable": 0
+        },
+        "5": {
+          "name": "Elapsed time in seconds",
+          "telemetry_length": 21,
+          "idx": 5,
+          "format": "l",
+          "simulatable": 0
+        },
+        "6": {
+          "name": "Elapsed context switches",
+          "telemetry_length": 21,
+          "idx": 6,
+          "format": "l",
+          "simulatable": 0
+        },
+        "7": {
+          "name": "Elapsed idling hooks",
+          "telemetry_length": 21,
+          "idx": 7,
+          "format": "l",
+          "simulatable": 0
+        },
+        "8": {
+          "name": "MCU load [%]",
+          "telemetry_length": 17,
+          "idx": 8,
+          "format": "f",
+          "simulatable": 0
+        },
+        "9": {
+          "name": "Module Serial Number",
+          "telemetry_length": 15,
+          "idx": 9,
+          "format": "s",
+          "simulatable": 0
+        },
+        "10": {
+          "name": "Module I2C Address",
+          "telemetry_length": 14,
+          "idx": 10,
+          "format": "x",
+          "simulatable": 0
+        },
+        "11": {
+          "name": "Oscillator Tuning Value",
+          "telemetry_length": 14,
+          "idx": 11,
+          "format": "t",
+          "simulatable": 0
+        },
+        "12": {
+          "name": "Number of NVM Write cycles",
+          "telemetry_length": 15,
+          "idx": 12,
+          "format": "n",
+          "simulatable": 0
+        },
+        "13": {
+          "name": "Last Processor Reset",
+          "telemetry_length": 15,
+          "idx": 13,
+          "format": "n",
+          "simulatable": 0
+        },
+        "14": {
+          "name": "Number Telem. Item [sup,mod]",
+          "telemetry_length": 17,
+          "idx": 14,
+          "format": "s,s",
+          "simulatable": 0
+        },
+        "15": {
+          "name": "SupMCU (CTMU) Temp [0.1K]",
+          "telemetry_length": 17,
+          "idx": 15,
+          "format": "s",
+          "simulatable": 0
+        },
+        "16": {
+          "name": "SupMCU Telemetry Simulated",
+          "telemetry_length": 15,
+          "idx": 16,
+          "format": "s",
+          "simulatable": 0
+        },
+        "17": {
+          "name": "Number Command Item",
+          "telemetry_length": 17,
+          "idx": 17,
+          "format": "s",
+          "simulatable": 0
+        }
+      },
+      "module_telemetry": {
+        "0": {
+          "name": "Status (PV, ...)",
+          "telemetry_length": 14,
+          "idx": 0,
+          "format": "x",
+          "simulatable": 1,
+          "defaults": [
+            0
+          ]
+        },
+        "1": {
+          "name": "NMEA String",
+          "telemetry_length": 525,
+          "idx": 1,
+          "format": "S",
+          "simulatable": 0
+        },
+        "2": {
+          "name": "Orbit Propagator",
+          "telemetry_length": 69,
+          "idx": 2,
+          "format": "F,F,F,F,F,F,F",
+          "simulatable": 0
+        },
+        "3": {
+          "name": "OEM615 power(W)",
+          "telemetry_length": 21,
+          "idx": 3,
+          "format": "s,s,s,s",
+          "simulatable": 1,
+          "defaults": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "commands": {
+        "0": {
+          "name": "SUPervisor:CLOCk",
+          "idx": 0
+        },
+        "1": {
+          "name": "SUPervisor:DEBug",
+          "idx": 1
+        },
+        "2": {
+          "name": "SUPervisor:I2C:RESet",
+          "idx": 2
+        },
+        "3": {
+          "name": "SUPervisor:LED",
+          "idx": 3
+        },
+        "4": {
+          "name": "SUPervisor:NVM",
+          "idx": 4
+        },
+        "5": {
+          "name": "SUPervisor:OSCillator",
+          "idx": 5
+        },
+        "6": {
+          "name": "SUPervisor:RESet",
+          "idx": 6
+        },
+        "7": {
+          "name": "SUPervisor:SELFtest",
+          "idx": 7
+        },
+        "8": {
+          "name": "SUPervisor:TELemetry?",
+          "idx": 8
+        },
+        "9": {
+          "name": "SUPervisor:CALibration?",
+          "idx": 9
+        },
+        "10": {
+          "name": "SUPervisor:CALibration",
+          "idx": 10
+        },
+        "11": {
+          "name": "SUPervisor:COMmands?",
+          "idx": 11
+        },
+        "12": {
+          "name": "SUPervisor:TELemetry",
+          "idx": 12
+        },
+        "13": {
+          "name": "SUPervisor:TELemetry:SIMulate",
+          "idx": 13
+        },
+        "14": {
+          "name": "GPS:LED",
+          "idx": 14
+        },
+        "15": {
+          "name": "GPS:LOG",
+          "idx": 15
+        },
+        "16": {
+          "name": "GPS:BESTPOS",
+          "idx": 16
+        },
+        "17": {
+          "name": "GPS:NVM",
+          "idx": 17
+        },
+        "18": {
+          "name": "GPS:PASSthrough",
+          "idx": 18
+        },
+        "19": {
+          "name": "GPS:POWer",
+          "idx": 19
+        },
+        "20": {
+          "name": "GPS:PROPagate",
+          "idx": 20
+        },
+        "21": {
+          "name": "GPS:RESet",
+          "idx": 21
+        },
+        "22": {
+          "name": "GPS:TELemetry?",
+          "idx": 22
+        },
+        "23": {
+          "name": "GPS:ADACS:POW",
+          "idx": 23
+        },
+        "24": {
+          "name": "GPS:ADCS:POW",
+          "idx": 24
+        },
+        "25": {
+          "name": "GPS:DEBug",
+          "idx": 25
+        },
+        "26": {
+          "name": "GPS:CALibration?",
+          "idx": 26
+        },
+        "27": {
+          "name": "GPS:CALibration",
+          "idx": 27
+        },
+        "28": {
+          "name": "GPS:TELemetry",
+          "idx": 28
+        }
+      }
+    }
+  },
+  {
+    "version": "BM (on QSM) Rev F1 fw v1.4.0b \u0026 SupMCU Core v1.5.1a",
+    "definition": {
+      "name": "BM",
+      "cmd_name": "BM",
+      "address": 88,
+      "supmcu_telemetry": {
+        "0": {
+          "name": "Firmware version",
+          "telemetry_length": 77,
+          "idx": 0,
+          "format": "S",
+          "simulatable": 0
+        },
+        "1": {
+          "name": "SCPI cmds processed",
+          "telemetry_length": 21,
+          "idx": 1,
+          "format": "l",
+          "simulatable": 0
+        },
+        "2": {
+          "name": "SCPI errs processed",
+          "telemetry_length": 21,
+          "idx": 2,
+          "format": "l",
+          "simulatable": 0
+        },
+        "3": {
+          "name": "Voltage status (TBD)",
+          "telemetry_length": 21,
+          "idx": 3,
+          "format": "x,x,x,x",
+          "simulatable": 0
+        },
+        "4": {
+          "name": "SupMCU CPU self tests",
+          "telemetry_length": 35,
+          "idx": 4,
+          "format": "l,l,s,s,s",
+          "simulatable": 0
+        },
+        "5": {
+          "name": "Elapsed time in seconds",
+          "telemetry_length": 21,
+          "idx": 5,
+          "format": "l",
+          "simulatable": 0
+        },
+        "6": {
+          "name": "Elapsed context switches",
+          "telemetry_length": 21,
+          "idx": 6,
+          "format": "l",
+          "simulatable": 0
+        },
+        "7": {
+          "name": "Elapsed idling hooks",
+          "telemetry_length": 21,
+          "idx": 7,
+          "format": "l",
+          "simulatable": 0
+        },
+        "8": {
+          "name": "MCU load [%]",
+          "telemetry_length": 17,
+          "idx": 8,
+          "format": "f",
+          "simulatable": 0
+        },
+        "9": {
+          "name": "Module Serial Number",
+          "telemetry_length": 15,
+          "idx": 9,
+          "format": "s",
+          "simulatable": 0
+        },
+        "10": {
+          "name": "Module I2C Address",
+          "telemetry_length": 14,
+          "idx": 10,
+          "format": "x",
+          "simulatable": 0
+        },
+        "11": {
+          "name": "Oscillator Tuning Value",
+          "telemetry_length": 14,
+          "idx": 11,
+          "format": "t",
+          "simulatable": 0
+        },
+        "12": {
+          "name": "Number of NVM Write cycles",
+          "telemetry_length": 15,
+          "idx": 12,
+          "format": "n",
+          "simulatable": 0
+        },
+        "13": {
+          "name": "Last Processor Reset",
+          "telemetry_length": 15,
+          "idx": 13,
+          "format": "n",
+          "simulatable": 0
+        },
+        "14": {
+          "name": "Number Telem. Item [sup,mod]",
+          "telemetry_length": 17,
+          "idx": 14,
+          "format": "s,s",
+          "simulatable": 0
+        },
+        "15": {
+          "name": "SupMCU (CTMU) Temp [0.1K]",
+          "telemetry_length": 17,
+          "idx": 15,
+          "format": "s",
+          "simulatable": 0
+        },
+        "16": {
+          "name": "SupMCU Telemetry Simulated",
+          "telemetry_length": 15,
+          "idx": 16,
+          "format": "s",
+          "simulatable": 0
+        },
+        "17": {
+          "name": "Number Command Item",
+          "telemetry_length": 17,
+          "idx": 17,
+          "format": "s",
+          "simulatable": 0
+        }
+      },
+      "module_telemetry": {
+        "0": {
+          "name": "gas gauge firmware version",
+          "telemetry_length": 45,
+          "idx": 0,
+          "format": "S",
+          "simulatable": 0
+        },
+        "1": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 1,
+          "format": "s",
+          "simulatable": 0
+        },
+        "2": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 2,
+          "format": "s",
+          "simulatable": 0
+        },
+        "3": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 3,
+          "format": "s",
+          "simulatable": 0
+        },
+        "4": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 4,
+          "format": "s",
+          "simulatable": 0
+        },
+        "5": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 5,
+          "format": "s",
+          "simulatable": 0
+        },
+        "6": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 6,
+          "format": "s",
+          "simulatable": 0
+        },
+        "7": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 7,
+          "format": "s",
+          "simulatable": 0
+        },
+        "8": {
+          "name": "Temperature [0.1K]",
+          "telemetry_length": 15,
+          "idx": 8,
+          "format": "s",
+          "simulatable": 0
+        },
+        "9": {
+          "name": "Voltage [mV]",
+          "telemetry_length": 15,
+          "idx": 9,
+          "format": "s",
+          "simulatable": 0
+        },
+        "10": {
+          "name": "Current [mA]",
+          "telemetry_length": 15,
+          "idx": 10,
+          "format": "n",
+          "simulatable": 0
+        },
+        "11": {
+          "name": "Average Current [mA]",
+          "telemetry_length": 15,
+          "idx": 11,
+          "format": "n",
+          "simulatable": 0
+        },
+        "12": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 12,
+          "format": "s",
+          "simulatable": 0
+        },
+        "13": {
+          "name": "Relative State Of Charge [%]",
+          "telemetry_length": 14,
+          "idx": 13,
+          "format": "u",
+          "simulatable": 0
+        },
+        "14": {
+          "name": "Absolute State Of Charge [%]",
+          "telemetry_length": 14,
+          "idx": 14,
+          "format": "u",
+          "simulatable": 0
+        },
+        "15": {
+          "name": "Remaining Capacity [10mWh]",
+          "telemetry_length": 15,
+          "idx": 15,
+          "format": "s",
+          "simulatable": 0
+        },
+        "16": {
+          "name": "Full Charge Capacity [10mWh]",
+          "telemetry_length": 15,
+          "idx": 16,
+          "format": "s",
+          "simulatable": 0
+        },
+        "17": {
+          "name": "Run Time To Empty [min]",
+          "telemetry_length": 14,
+          "idx": 17,
+          "format": "s",
+          "simulatable": 0
+        },
+        "18": {
+          "name": "Average Time To Empty [min]",
+          "telemetry_length": 15,
+          "idx": 18,
+          "format": "s",
+          "simulatable": 0
+        },
+        "19": {
+          "name": "Average Time To Full [min]",
+          "telemetry_length": 15,
+          "idx": 19,
+          "format": "s",
+          "simulatable": 0
+        },
+        "20": {
+          "name": "Charging Current [mA]",
+          "telemetry_length": 15,
+          "idx": 20,
+          "format": "s",
+          "simulatable": 0
+        },
+        "21": {
+          "name": "Charging Voltage [mV]",
+          "telemetry_length": 15,
+          "idx": 21,
+          "format": "s",
+          "simulatable": 0
+        },
+        "22": {
+          "name": "Battery Status [hex code]",
+          "telemetry_length": 15,
+          "idx": 22,
+          "format": "x,x",
+          "simulatable": 0
+        },
+        "23": {
+          "name": "Cycle Count",
+          "telemetry_length": 15,
+          "idx": 23,
+          "format": "s",
+          "simulatable": 0
+        },
+        "24": {
+          "name": "Design Capacity [10mWh]",
+          "telemetry_length": 15,
+          "idx": 24,
+          "format": "n",
+          "simulatable": 0
+        },
+        "25": {
+          "name": "Design Voltage [mV]",
+          "telemetry_length": 15,
+          "idx": 25,
+          "format": "n",
+          "simulatable": 0
+        },
+        "26": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 26,
+          "format": "s",
+          "simulatable": 0
+        },
+        "27": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 27,
+          "format": "s",
+          "simulatable": 0
+        },
+        "28": {
+          "name": "Safety Alert Registers",
+          "telemetry_length": 17,
+          "idx": 28,
+          "format": "x,x,x,x",
+          "simulatable": 0
+        },
+        "29": {
+          "name": "Safety Status Registers",
+          "telemetry_length": 17,
+          "idx": 29,
+          "format": "x,x,x,x",
+          "simulatable": 0
+        },
+        "30": {
+          "name": "Charging Status Register",
+          "telemetry_length": 17,
+          "idx": 30,
+          "format": "x,x,x,x",
+          "simulatable": 0
+        },
+        "31": {
+          "name": "PF Registers",
+          "telemetry_length": 17,
+          "idx": 31,
+          "format": "x,x,x,x",
+          "simulatable": 0
+        },
+        "32": {
+          "name": "PF Registers",
+          "telemetry_length": 17,
+          "idx": 32,
+          "format": "x,x,x,x",
+          "simulatable": 0
+        },
+        "33": {
+          "name": "Last Minimum pack voltage [mV]",
+          "telemetry_length": 15,
+          "idx": 33,
+          "format": "s",
+          "simulatable": 0
+        },
+        "34": {
+          "name": "Last Maximum pack voltage [mV]",
+          "telemetry_length": 15,
+          "idx": 34,
+          "format": "s",
+          "simulatable": 0
+        },
+        "35": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 35,
+          "format": "s",
+          "simulatable": 0
+        },
+        "36": {
+          "name": "Approx State of Charge [%]",
+          "telemetry_length": 14,
+          "idx": 36,
+          "format": "u",
+          "simulatable": 0
+        },
+        "37": {
+          "name": "Pack Internal Resistance [0.1mOh",
+          "telemetry_length": 15,
+          "idx": 37,
+          "format": "s",
+          "simulatable": 0
+        },
+        "38": {
+          "name": "Current Compensated Voltage [mV]",
+          "telemetry_length": 15,
+          "idx": 38,
+          "format": "s",
+          "simulatable": 0
+        },
+        "39": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 39,
+          "format": "s",
+          "simulatable": 0
+        },
+        "40": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 40,
+          "format": "s",
+          "simulatable": 0
+        },
+        "41": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 41,
+          "format": "s",
+          "simulatable": 0
+        },
+        "42": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 42,
+          "format": "s",
+          "simulatable": 0
+        },
+        "43": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 43,
+          "format": "s",
+          "simulatable": 0
+        },
+        "44": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 44,
+          "format": "s",
+          "simulatable": 0
+        },
+        "45": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 45,
+          "format": "s",
+          "simulatable": 0
+        },
+        "46": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 46,
+          "format": "s",
+          "simulatable": 0
+        },
+        "47": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 47,
+          "format": "s",
+          "simulatable": 0
+        },
+        "48": {
+          "name": "External Temp Sensor 1 [0.1K]",
+          "telemetry_length": 15,
+          "idx": 48,
+          "format": "s",
+          "simulatable": 0
+        },
+        "49": {
+          "name": "External Temp Sensor 2 [0.1K]",
+          "telemetry_length": 15,
+          "idx": 49,
+          "format": "s",
+          "simulatable": 0
+        },
+        "50": {
+          "name": "External Temp Sensor 3 [0.1K]",
+          "telemetry_length": 15,
+          "idx": 50,
+          "format": "s",
+          "simulatable": 0
+        },
+        "51": {
+          "name": "External Temp Sensor 4 [0.1K]",
+          "telemetry_length": 15,
+          "idx": 51,
+          "format": "s",
+          "simulatable": 0
+        },
+        "52": {
+          "name": "SupMCU Status Register",
+          "telemetry_length": 14,
+          "idx": 52,
+          "format": "x",
+          "simulatable": 0
+        },
+        "53": {
+          "name": "Time of last Permanent Failure",
+          "telemetry_length": 28,
+          "idx": 53,
+          "format": "S",
+          "simulatable": 0
+        },
+        "54": {
+          "name": "Registers for last PF",
+          "telemetry_length": 17,
+          "idx": 54,
+          "format": "x,x,x,x",
+          "simulatable": 0
+        },
+        "55": {
+          "name": "Data from requested SMB Read",
+          "telemetry_length": 45,
+          "idx": 55,
+          "format": "x,x,x,x,x,x,x,x,x,x,x,x",
+          "simulatable": 0
+        },
+        "56": {
+          "name": "Data from requested Flash Entry",
+          "telemetry_length": 45,
+          "idx": 56,
+          "format": "x,x,x,x,x,x,x,x,x,x,x,x",
+          "simulatable": 0
+        },
+        "57": {
+          "name": "Data from requested MA Entry",
+          "telemetry_length": 15,
+          "idx": 57,
+          "format": "x,x",
+          "simulatable": 0
+        },
+        "58": {
+          "name": "Data from last function call",
+          "telemetry_length": 21,
+          "idx": 58,
+          "format": "x,x,x,x,x,x,x,x",
+          "simulatable": 0
+        },
+        "59": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 59,
+          "format": "s",
+          "simulatable": 0
+        },
+        "60": {
+          "name": "Cell Voltage 4 [mV]",
+          "telemetry_length": 15,
+          "idx": 60,
+          "format": "s",
+          "simulatable": 0
+        },
+        "61": {
+          "name": "Cell Voltage 3 [mV]",
+          "telemetry_length": 15,
+          "idx": 61,
+          "format": "s",
+          "simulatable": 0
+        },
+        "62": {
+          "name": "Cell Voltage 2 [mV]",
+          "telemetry_length": 15,
+          "idx": 62,
+          "format": "s",
+          "simulatable": 0
+        },
+        "63": {
+          "name": "Cell Voltage 1 [mV]",
+          "telemetry_length": 15,
+          "idx": 63,
+          "format": "s",
+          "simulatable": 0
+        },
+        "64": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 64,
+          "format": "s",
+          "simulatable": 0
+        },
+        "65": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 65,
+          "format": "s",
+          "simulatable": 0
+        },
+        "66": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 66,
+          "format": "s",
+          "simulatable": 0
+        },
+        "67": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 67,
+          "format": "s",
+          "simulatable": 0
+        },
+        "68": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 68,
+          "format": "s",
+          "simulatable": 0
+        },
+        "69": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 69,
+          "format": "s",
+          "simulatable": 0
+        },
+        "70": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 70,
+          "format": "s",
+          "simulatable": 0
+        },
+        "71": {
+          "name": "External Temp Sensor 5 [0.1K]",
+          "telemetry_length": 15,
+          "idx": 71,
+          "format": "s",
+          "simulatable": 0
+        },
+        "72": {
+          "name": "External Temp Sensor 6 [0.1K]",
+          "telemetry_length": 15,
+          "idx": 72,
+          "format": "s",
+          "simulatable": 0
+        },
+        "73": {
+          "name": "External Temp Sensor 7 [0.1K]",
+          "telemetry_length": 15,
+          "idx": 73,
+          "format": "s",
+          "simulatable": 0
+        },
+        "74": {
+          "name": "External Temp Sensor 8 [0.1K]",
+          "telemetry_length": 15,
+          "idx": 74,
+          "format": "s",
+          "simulatable": 0
+        },
+        "75": {
+          "name": "Temp offsets for linear fit",
+          "telemetry_length": 37,
+          "idx": 75,
+          "format": "f,f,f,f,f,f",
+          "simulatable": 0
+        },
+        "76": {
+          "name": "Temp linear fit scaling factors",
+          "telemetry_length": 37,
+          "idx": 76,
+          "format": "f,f,f,f,f,f",
+          "simulatable": 0
+        },
+        "77": {
+          "name": "Status of Cell Balancing system",
+          "telemetry_length": 14,
+          "idx": 77,
+          "format": "x",
+          "simulatable": 0
+        },
+        "78": {
+          "name": "Data from requested Flash Page",
+          "telemetry_length": 46,
+          "idx": 78,
+          "format": "x,x,x,x,x,x,x,x,x,x,x,x",
+          "simulatable": 0
+        },
+        "79": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 79,
+          "format": "s",
+          "simulatable": 0
+        },
+        "80": {
+          "name": "Safety Alert Reg (Deprecated)",
+          "telemetry_length": 15,
+          "idx": 80,
+          "format": "x,x",
+          "simulatable": 0
+        },
+        "81": {
+          "name": "Safety Status Reg (Deprecated)",
+          "telemetry_length": 15,
+          "idx": 81,
+          "format": "x,x",
+          "simulatable": 0
+        },
+        "82": {
+          "name": "PF Alert Register (Deprecated)",
+          "telemetry_length": 15,
+          "idx": 82,
+          "format": "x,x",
+          "simulatable": 0
+        },
+        "83": {
+          "name": "PF Status Register (Deprecated)",
+          "telemetry_length": 15,
+          "idx": 83,
+          "format": "x,x",
+          "simulatable": 0
+        },
+        "84": {
+          "name": "Operation Status Register",
+          "telemetry_length": 15,
+          "idx": 84,
+          "format": "x,x",
+          "simulatable": 0
+        },
+        "85": {
+          "name": "ChargingStatus Reg (Deprecated)",
+          "telemetry_length": 15,
+          "idx": 85,
+          "format": "x,x",
+          "simulatable": 0
+        },
+        "86": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 86,
+          "format": "s",
+          "simulatable": 0
+        },
+        "87": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 87,
+          "format": "s",
+          "simulatable": 0
+        },
+        "88": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 88,
+          "format": "s",
+          "simulatable": 0
+        },
+        "89": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 89,
+          "format": "s",
+          "simulatable": 0
+        },
+        "90": {
+          "name": "Pack Voltage [mV]",
+          "telemetry_length": 15,
+          "idx": 90,
+          "format": "s",
+          "simulatable": 0
+        },
+        "91": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 91,
+          "format": "s",
+          "simulatable": 0
+        },
+        "92": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 92,
+          "format": "s",
+          "simulatable": 0
+        },
+        "93": {
+          "name": "Average Voltage [mV]",
+          "telemetry_length": 15,
+          "idx": 93,
+          "format": "s",
+          "simulatable": 0
+        },
+        "94": {
+          "name": "TS1 Temperature [0.1K]",
+          "telemetry_length": 15,
+          "idx": 94,
+          "format": "n",
+          "simulatable": 0
+        },
+        "95": {
+          "name": "TS2 Temperature [0.1K]",
+          "telemetry_length": 15,
+          "idx": 95,
+          "format": "n",
+          "simulatable": 0
+        },
+        "96": {
+          "name": "TS3 Temperature [0.1K]",
+          "telemetry_length": 15,
+          "idx": 96,
+          "format": "n",
+          "simulatable": 0
+        },
+        "97": {
+          "name": "TS4 Temperature [0.1K]",
+          "telemetry_length": 15,
+          "idx": 97,
+          "format": "n",
+          "simulatable": 0
+        },
+        "98": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 98,
+          "format": "s",
+          "simulatable": 0
+        },
+        "99": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 99,
+          "format": "s",
+          "simulatable": 0
+        },
+        "100": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 100,
+          "format": "s",
+          "simulatable": 0
+        },
+        "101": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 101,
+          "format": "s",
+          "simulatable": 0
+        },
+        "102": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 102,
+          "format": "s",
+          "simulatable": 0
+        },
+        "103": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 103,
+          "format": "s",
+          "simulatable": 0
+        },
+        "104": {
+          "name": "Safety Alert 2 Reg (Deprecated)",
+          "telemetry_length": 15,
+          "idx": 104,
+          "format": "x,x",
+          "simulatable": 0
+        },
+        "105": {
+          "name": "Safety Status 2 Reg (Deprecated)",
+          "telemetry_length": 15,
+          "idx": 105,
+          "format": "x,x",
+          "simulatable": 0
+        },
+        "106": {
+          "name": "PF Alert 2 Reg (Deprecated)",
+          "telemetry_length": 15,
+          "idx": 106,
+          "format": "x,x",
+          "simulatable": 0
+        },
+        "107": {
+          "name": "PF Status 2 Reg (Deprecated)",
+          "telemetry_length": 15,
+          "idx": 107,
+          "format": "x,x",
+          "simulatable": 0
+        },
+        "108": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 108,
+          "format": "s",
+          "simulatable": 0
+        },
+        "109": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 109,
+          "format": "s",
+          "simulatable": 0
+        },
+        "110": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 110,
+          "format": "s",
+          "simulatable": 0
+        },
+        "111": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 111,
+          "format": "s",
+          "simulatable": 0
+        },
+        "112": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 112,
+          "format": "s",
+          "simulatable": 0
+        },
+        "113": {
+          "name": "Reserved",
+          "telemetry_length": 15,
+          "idx": 113,
+          "format": "s",
+          "simulatable": 0
+        },
+        "114": {
+          "name": "Temperature Range",
+          "telemetry_length": 15,
+          "idx": 114,
+          "format": "s",
+          "simulatable": 0
+        }
+      },
+      "commands": {
+        "0": {
+          "name": "SUPervisor:CLOCk",
+          "idx": 0
+        },
+        "1": {
+          "name": "SUPervisor:DEBug",
+          "idx": 1
+        },
+        "2": {
+          "name": "SUPervisor:I2C:RESet",
+          "idx": 2
+        },
+        "3": {
+          "name": "SUPervisor:LED",
+          "idx": 3
+        },
+        "4": {
+          "name": "SUPervisor:NVM",
+          "idx": 4
+        },
+        "5": {
+          "name": "SUPervisor:OSCillator",
+          "idx": 5
+        },
+        "6": {
+          "name": "SUPervisor:RESet",
+          "idx": 6
+        },
+        "7": {
+          "name": "SUPervisor:SELFtest",
+          "idx": 7
+        },
+        "8": {
+          "name": "SUPervisor:TELemetry?",
+          "idx": 8
+        },
+        "9": {
+          "name": "SUPervisor:CALibration?",
+          "idx": 9
+        },
+        "10": {
+          "name": "SUPervisor:CALibration",
+          "idx": 10
+        },
+        "11": {
+          "name": "SUPervisor:COMmands?",
+          "idx": 11
+        },
+        "12": {
+          "name": "SUPervisor:TELemetry",
+          "idx": 12
+        },
+        "13": {
+          "name": "SUPervisor:TELemetry:SIMulate",
+          "idx": 13
+        },
+        "14": {
+          "name": "BM2:BQFlash",
+          "idx": 14
+        },
+        "15": {
+          "name": "BM2:BQMaccess",
+          "idx": 15
+        },
+        "16": {
+          "name": "BM2:BQSmb",
+          "idx": 16
+        },
+        "17": {
+          "name": "BM2:FUNCtion",
+          "idx": 17
+        },
+        "18": {
+          "name": "BM2:NVM",
+          "idx": 18
+        },
+        "19": {
+          "name": "BM2:TELemetry?",
+          "idx": 19
+        },
+        "20": {
+          "name": "BM2:HEAter",
+          "idx": 20
+        },
+        "21": {
+          "name": "BM2:SLEep",
+          "idx": 21
+        },
+        "22": {
+          "name": "BM2:BALance",
+          "idx": 22
+        },
+        "23": {
+          "name": "BM:BQFlash",
+          "idx": 23
+        },
+        "24": {
+          "name": "BM:BQMaccess",
+          "idx": 24
+        },
+        "25": {
+          "name": "BM:BQSmb",
+          "idx": 25
+        },
+        "26": {
+          "name": "BM:FUNCtion",
+          "idx": 26
+        },
+        "27": {
+          "name": "BM:NVM",
+          "idx": 27
+        },
+        "28": {
+          "name": "BM:TELemetry?",
+          "idx": 28
+        },
+        "29": {
+          "name": "BM:HEAter",
+          "idx": 29
+        },
+        "30": {
+          "name": "BM:SLEep",
+          "idx": 30
+        },
+        "31": {
+          "name": "BM:BALance",
+          "idx": 31
+        },
+        "32": {
+          "name": "BM:DEBug",
+          "idx": 32
+        },
+        "33": {
+          "name": "BM2:DEBug",
+          "idx": 33
+        },
+        "34": {
+          "name": "BM:PFIn",
+          "idx": 34
+        },
+        "35": {
+          "name": "BM2:PFIn",
+          "idx": 35
+        },
+        "36": {
+          "name": "BM:CALibration",
+          "idx": 36
+        },
+        "37": {
+          "name": "BM:CALibration?",
+          "idx": 37
+        },
+        "38": {
+          "name": "BM2:CALibration",
+          "idx": 38
+        },
+        "39": {
+          "name": "BM2:CALibration?",
+          "idx": 39
+        },
+        "40": {
+          "name": "BM:RESet",
+          "idx": 40
+        },
+        "41": {
+          "name": "BM2:RESet",
+          "idx": 41
+        }
+      }
+    }
+  },
+  {
+    "version": "RHM (on QSM) Rev B fw v1.0.1b \u0026 SupMCU Core v1.5.1a",
+    "definition": {
+      "name": "RHM",
+      "cmd_name": "RHM",
+      "address": 92,
+      "supmcu_telemetry": {
+        "0": {
+          "name": "Firmware version",
+          "telemetry_length": 77,
+          "idx": 0,
+          "format": "S",
+          "simulatable": 0
+        },
+        "1": {
+          "name": "SCPI cmds processed",
+          "telemetry_length": 21,
+          "idx": 1,
+          "format": "l",
+          "simulatable": 0
+        },
+        "2": {
+          "name": "SCPI errs processed",
+          "telemetry_length": 21,
+          "idx": 2,
+          "format": "l",
+          "simulatable": 0
+        },
+        "3": {
+          "name": "Voltage status (TBD)",
+          "telemetry_length": 21,
+          "idx": 3,
+          "format": "x,x,x,x",
+          "simulatable": 0
+        },
+        "4": {
+          "name": "SupMCU CPU self tests",
+          "telemetry_length": 35,
+          "idx": 4,
+          "format": "l,l,s,s,s",
+          "simulatable": 0
+        },
+        "5": {
+          "name": "Elapsed time in seconds",
+          "telemetry_length": 21,
+          "idx": 5,
+          "format": "l",
+          "simulatable": 0
+        },
+        "6": {
+          "name": "Elapsed context switches",
+          "telemetry_length": 21,
+          "idx": 6,
+          "format": "l",
+          "simulatable": 0
+        },
+        "7": {
+          "name": "Elapsed idling hooks",
+          "telemetry_length": 21,
+          "idx": 7,
+          "format": "l",
+          "simulatable": 0
+        },
+        "8": {
+          "name": "MCU load [%]",
+          "telemetry_length": 17,
+          "idx": 8,
+          "format": "f",
+          "simulatable": 0
+        },
+        "9": {
+          "name": "Module Serial Number",
+          "telemetry_length": 15,
+          "idx": 9,
+          "format": "s",
+          "simulatable": 0
+        },
+        "10": {
+          "name": "Module I2C Address",
+          "telemetry_length": 14,
+          "idx": 10,
+          "format": "x",
+          "simulatable": 0
+        },
+        "11": {
+          "name": "Oscillator Tuning Value",
+          "telemetry_length": 14,
+          "idx": 11,
+          "format": "t",
+          "simulatable": 0
+        },
+        "12": {
+          "name": "Number of NVM Write cycles",
+          "telemetry_length": 15,
+          "idx": 12,
+          "format": "n",
+          "simulatable": 0
+        },
+        "13": {
+          "name": "Last Processor Reset",
+          "telemetry_length": 15,
+          "idx": 13,
+          "format": "n",
+          "simulatable": 0
+        },
+        "14": {
+          "name": "Number Telem. Item [sup,mod]",
+          "telemetry_length": 17,
+          "idx": 14,
+          "format": "s,s",
+          "simulatable": 0
+        },
+        "15": {
+          "name": "SupMCU (CTMU) Temp [0.1K]",
+          "telemetry_length": 17,
+          "idx": 15,
+          "format": "s",
+          "simulatable": 0
+        },
+        "16": {
+          "name": "SupMCU Telemetry Simulated",
+          "telemetry_length": 15,
+          "idx": 16,
+          "format": "s",
+          "simulatable": 0
+        },
+        "17": {
+          "name": "Number Command Item",
+          "telemetry_length": 17,
+          "idx": 17,
+          "format": "s",
+          "simulatable": 0
+        }
+      },
+      "module_telemetry": {
+        "0": {
+          "name": "Lithium Radio Power Status",
+          "telemetry_length": 14,
+          "idx": 0,
+          "format": "x",
+          "simulatable": 1,
+          "defaults": [
+            0
+          ]
+        },
+        "1": {
+          "name": "Lithium Radio UART Status",
+          "telemetry_length": 14,
+          "idx": 1,
+          "format": "u",
+          "simulatable": 1,
+          "defaults": [
+            0
+          ]
+        },
+        "2": {
+          "name": "Lithium Radio Config Pin Status",
+          "telemetry_length": 14,
+          "idx": 2,
+          "format": "x",
+          "simulatable": 1,
+          "defaults": [
+            0
+          ]
+        },
+        "3": {
+          "name": "GlobalStar Radio Power Status",
+          "telemetry_length": 14,
+          "idx": 3,
+          "format": "x",
+          "simulatable": 1,
+          "defaults": [
+            0
+          ]
+        },
+        "4": {
+          "name": "GlobalStar UART Status",
+          "telemetry_length": 14,
+          "idx": 4,
+          "format": "u",
+          "simulatable": 1,
+          "defaults": [
+            0
+          ]
+        },
+        "5": {
+          "name": "GlobalStar Radio DIN Status",
+          "telemetry_length": 14,
+          "idx": 5,
+          "format": "x",
+          "simulatable": 1,
+          "defaults": [
+            0
+          ]
+        },
+        "6": {
+          "name": "GlobalStar Radio Busy Status",
+          "telemetry_length": 14,
+          "idx": 6,
+          "format": "x",
+          "simulatable": 1,
+          "defaults": [
+            0
+          ]
+        },
+        "7": {
+          "name": "Soft WDT period",
+          "telemetry_length": 17,
+          "idx": 7,
+          "format": "i",
+          "simulatable": 0
+        },
+        "8": {
+          "name": "GS Transmission Status",
+          "telemetry_length": 14,
+          "idx": 8,
+          "format": "x",
+          "simulatable": 1,
+          "defaults": [
+            0
+          ]
+        },
+        "9": {
+          "name": "GS Transmission Sent",
+          "telemetry_length": 17,
+          "idx": 9,
+          "format": "i",
+          "simulatable": 1,
+          "defaults": [
+            0
+          ]
+        },
+        "10": {
+          "name": "GS Transmission Failed",
+          "telemetry_length": 17,
+          "idx": 10,
+          "format": "i",
+          "simulatable": 1,
+          "defaults": [
+            0
+          ]
+        },
+        "11": {
+          "name": "GS Configuration Status",
+          "telemetry_length": 14,
+          "idx": 11,
+          "format": "u",
+          "simulatable": 1,
+          "defaults": [
+            0
+          ]
+        },
+        "12": {
+          "name": "GS +VIN",
+          "telemetry_length": 15,
+          "idx": 12,
+          "format": "s",
+          "simulatable": 1,
+          "defaults": [
+            0
+          ]
+        },
+        "13": {
+          "name": "GS Temperature",
+          "telemetry_length": 15,
+          "idx": 13,
+          "format": "s",
+          "simulatable": 1,
+          "defaults": [
+            0
+          ]
+        }
+      },
+      "commands": {
+        "0": {
+          "name": "SUPervisor:CLOCk",
+          "idx": 0
+        },
+        "1": {
+          "name": "SUPervisor:DEBug",
+          "idx": 1
+        },
+        "2": {
+          "name": "SUPervisor:I2C:RESet",
+          "idx": 2
+        },
+        "3": {
+          "name": "SUPervisor:LED",
+          "idx": 3
+        },
+        "4": {
+          "name": "SUPervisor:NVM",
+          "idx": 4
+        },
+        "5": {
+          "name": "SUPervisor:OSCillator",
+          "idx": 5
+        },
+        "6": {
+          "name": "SUPervisor:RESet",
+          "idx": 6
+        },
+        "7": {
+          "name": "SUPervisor:SELFtest",
+          "idx": 7
+        },
+        "8": {
+          "name": "SUPervisor:TELemetry?",
+          "idx": 8
+        },
+        "9": {
+          "name": "SUPervisor:CALibration?",
+          "idx": 9
+        },
+        "10": {
+          "name": "SUPervisor:CALibration",
+          "idx": 10
+        },
+        "11": {
+          "name": "SUPervisor:COMmands?",
+          "idx": 11
+        },
+        "12": {
+          "name": "SUPervisor:TELemetry",
+          "idx": 12
+        },
+        "13": {
+          "name": "SUPervisor:TELemetry:SIMulate",
+          "idx": 13
+        },
+        "14": {
+          "name": "RHM:NVM",
+          "idx": 14
+        },
+        "15": {
+          "name": "RHM:TELemetry?",
+          "idx": 15
+        },
+        "16": {
+          "name": "RHM:LIthium:COMM",
+          "idx": 16
+        },
+        "17": {
+          "name": "RHM:LIthium:CONFig",
+          "idx": 17
+        },
+        "18": {
+          "name": "RHM:LIthium:MCU",
+          "idx": 18
+        },
+        "19": {
+          "name": "RHM:LIthium:PA",
+          "idx": 19
+        },
+        "20": {
+          "name": "RHM:LIthium:PASSthrough",
+          "idx": 20
+        },
+        "21": {
+          "name": "RHM:LIthium:POWer",
+          "idx": 21
+        },
+        "22": {
+          "name": "RHM:GStar:DIN",
+          "idx": 22
+        },
+        "23": {
+          "name": "RHM:GStar:COMM",
+          "idx": 23
+        },
+        "24": {
+          "name": "RHM:GStar:PASSthrough",
+          "idx": 24
+        },
+        "25": {
+          "name": "RHM:GStar:POWer",
+          "idx": 25
+        },
+        "26": {
+          "name": "RHM:GStar:SEND",
+          "idx": 26
+        },
+        "27": {
+          "name": "RHM:GStar:CONFig",
+          "idx": 27
+        },
+        "28": {
+          "name": "RHM:DEBug",
+          "idx": 28
+        },
+        "29": {
+          "name": "RHM:TELemetry",
+          "idx": 29
+        }
+      }
+    }
+  }
+]
