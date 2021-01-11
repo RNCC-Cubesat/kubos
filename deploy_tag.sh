@@ -35,4 +35,4 @@ echo "Tagging new verson: $new_tag"
 git tag $new_tag
 
 echo "Pushing new tag..."
-git push origin "https://gitlab-ci-token:$KUBOS_BUILDER_TOKEN@$CI_SERVER_HOST/$CI_PROJECT_PATH.git" $new_tag
+git push origin $new_tag
