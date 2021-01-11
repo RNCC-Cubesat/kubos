@@ -35,4 +35,6 @@ echo "Tagging new verson: $new_tag"
 git tag $new_tag
 
 echo "Pushing new tag..."
+url_host=$(echo "${CI_REPOSITORY_URL}" | sed -e 's|https\?://gitlab-ci-token:.*@|ssh://git@|g') # swap https for ssh
+git remote set-url --push origin "${url_host}"
 git push origin $new_tag
