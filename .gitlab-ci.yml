@@ -82,7 +82,7 @@ tag:
     - echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
     - BUILD_DIR=/builds/pumpkin-space-systems/public/kubos/.git/
-    - CLONE_DIR="$BUILD_DIR/$CI_PROJECT_PATH
+    - CLONE_DIR="$BUILD_DIR/$CI_PROJECT_PATH"
     - cd $BUILD_DIR
     - rm -rf $CLONE_DIR
     - mkdir -p $CLONE_DIR
