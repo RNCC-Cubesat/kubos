@@ -81,13 +81,10 @@ tag:
     - chmod 700 ~/.ssh
     - echo "$SSH_KNOWN_HOSTS" >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
-    - BUILD_DIR=/builds/pumpkin-space-systems/public/kubos/.git/
-    - CLONE_DIR="$BUILD_DIR/$CI_PROJECT_PATH"
-    - mkdir -p $BUILD_DIR
-    - cd $BUILD_DIR
-    - rm -rf $CLONE_DIR
-    - mkdir $CLONE_DIR
-    - git clone git@gitlab.com:pumpkin-space-systems/public/kubos.git $CLONE_DIR
+    - rm -rf $CI_PROJECT_DIR
+    - mkdir -p $CI_PROJECT_DIR
+    - git clone git@gitlab.com:pumpkin-space-systems/public/kubos.git $CI_PROJECT_DIR
+    - cd $CI_PROJECT_DIR
 
   variables:
     GIT_STRATEGY: none
