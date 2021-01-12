@@ -102,6 +102,8 @@ build_release:
   stage: release
   variables:
     KUBOS_TAG: '$CI_COMMIT_TAG'
-  trigger: public/kubos-linux-build
+  trigger:
+    project: public/kubos-linux-build
+    strategy: depend
   only:
     - tags
