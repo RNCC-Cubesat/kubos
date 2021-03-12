@@ -8,17 +8,10 @@ default:
     - kubos
     - docker
 
-.default_rules: &default_rules
-  rules:
-    - if: '$CI_COMMIT_BRANCH != "master"'
-    - if: ! '$CI_MERGE_REQUEST_ID'
-
 rust_check_x86:
-  <<: *default_rules
   script: cargo check --workspace --all-targets
 
 rust_check_mbm2:
-  <<: *default_rules
   script: cargo check --workspace --all-targets --target arm-unknown-linux-gnueabihf
   variables:
     CC: /usr/bin/bbb_toolchain/usr/bin/arm-linux-gcc
@@ -26,7 +19,6 @@ rust_check_mbm2:
     PKG_CONFIG_ALLOW_CROSS: 1
 
 rust_check_iobc:
-  <<: *default_rules
   script: cargo check --workspace --all-targets --target armv5te-unknown-linux-gnueabi
   variables:
     CC: /usr/bin/iobc_toolchain/usr/bin/arm-linux-gcc
@@ -34,37 +26,30 @@ rust_check_iobc:
     PKG_CONFIG_ALLOW_CROSS: 1
 
 rust_test:
-  <<: *default_rules
   script:
     - cd apis/app-api/python && pip3 install .
     - cargo test --workspace --release
     - cargo test --package kubos-app-service --test test_python_app --release -- --ignored
 
 rust_test_large_upload:
-  <<: *default_rules
   script: cargo run --bin large_upload --release
 
 
 rust_test_large_download:
-  <<: *default_rules
   script: cargo run --bin large_download --release
 
 rust_test_nosengine:
-  <<: *default_rules
   script:
     - cd apis/nosengine-rust && cargo check; cd -
     - cd test/integration/nosengine-rust && cargo run
 
 rust_fmt:
-  <<: *default_rules
   script: cargo fmt --all -- --check
 
 rust_clippy:
-  <<: *default_rules
   script: cargo clippy --workspace --all-targets
 
 non_rust_tests:
-  <<: *default_rules
   script:
     -  python3 tools/ci_c.py
     -  python3 hal/python-hal/i2c/test_i2c.py
