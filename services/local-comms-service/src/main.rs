@@ -162,7 +162,7 @@ fn main() -> LocalCommsServiceResult<()> {
         },
     )?;
 
-    let subsystem = Subsystem::new(telem);
+    let subsystem = Subsystem::new(telem, conn.clone());
     Service::new(service_config.clone(), subsystem, QueryRoot, MutationRoot).start();
 
     Ok(())
