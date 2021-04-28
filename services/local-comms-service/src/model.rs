@@ -5,6 +5,8 @@
 //!
 
 use comms_service::CommsTelemetry;
+use crate::comms::LocalComms;
+
 use std::sync::{Arc, Mutex};
 
 #[derive(Clone)]
