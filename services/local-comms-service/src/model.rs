@@ -10,11 +10,12 @@ use std::sync::{Arc, Mutex};
 #[derive(Clone)]
 pub struct Subsystem {
     telem: Arc<Mutex<CommsTelemetry>>,
+    pub local: Arc<Mutex<LocalComms>>,
 }
 
 impl Subsystem {
-    pub fn new(telem: Arc<Mutex<CommsTelemetry>>) -> Subsystem {
-        Subsystem { telem }
+    pub fn new(telem: Arc<Mutex<CommsTelemetry>>, local: Arc<Mutex<LocalComms>>) -> Subsystem {
+        Subsystem { telem, local }
     }
 
     pub fn failed_packets_up(&self) -> Result<i32, String> {
