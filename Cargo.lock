@@ -1392,6 +1392,8 @@ version = "0.1.0"
 dependencies = [
  "comms-service 0.1.0",
  "failure 0.1.6 (registry+https://github.com/rust-lang/crates.io-index)",
+ "juniper 0.11.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "kubos-service 0.1.0",
  "kubos-system 0.1.0",
  "log 0.4.8 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
