@@ -28,17 +28,29 @@
 //! Telemetry queries will be added as desired for testing.
 //!
 
+
+// extern crate comms_service;
+#[macro_use]
+extern crate juniper;
+extern crate kubos_service;
+
+mod comms;
+mod model;
+mod schema;
+
 use crate::comms::*;
 use comms_service::*;
 use failure::Error;
 use kubos_system::logger as ServiceLogger;
 use kubos_system::Config as ServiceConfig;
+use kubos_service::{Config, Logger, Service};
 use log::error;
 use std::sync::{Arc, Mutex};
-use std::thread;
-use std::time::Duration;
+use crate::model::Subsystem;
+use crate::schema::{MutationRoot, QueryRoot};
 
-mod comms;
+// use std::thread;
+
 
 // Return type for the ethernet service.
 type LocalCommsServiceResult<T> = Result<T, Error>;
@@ -112,7 +124,7 @@ fn main() -> LocalCommsServiceResult<()> {
         .unwrap() as u16;
 
     // Pull out our communication settings
-    let config = CommsConfig::new(service_config).map_err(|err| {
+    let config = CommsConfig::new(service_config.clone()).map_err(|err| {
         error!("Failed to initialize CommsConfig: {:?}", err);
         err
     })?;
@@ -150,8 +162,8 @@ fn main() -> LocalCommsServiceResult<()> {
         },
     )?;
 
-    // We will eventually start the GraphQL service here.
-    loop {
-        thread::sleep(Duration::from_millis(1))
-    }
+    let subsystem = Subsystem::new(telem);
+    Service::new(service_config.clone(), subsystem, QueryRoot, MutationRoot).start();
+
+    Ok(())
 }
