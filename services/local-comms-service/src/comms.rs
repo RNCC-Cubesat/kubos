@@ -63,7 +63,7 @@ impl LocalComms {
 }
 
 // Function to allow reading from a UDP socket.
-pub fn read(socket: &Arc<Mutex<LocalComms>>) -> CommsResult<Vec<u8>> {
+pub fn net_read(socket: &Arc<Mutex<LocalComms>>) -> CommsResult<Vec<u8>> {
     if let Ok(socket) = socket.lock() {
         socket.read()
     } else {
@@ -72,7 +72,7 @@ pub fn read(socket: &Arc<Mutex<LocalComms>>) -> CommsResult<Vec<u8>> {
 }
 
 // Function to allow writing over a UDP socket.
-pub fn write(socket: &Arc<Mutex<LocalComms>>, data: &[u8]) -> CommsResult<()> {
+pub fn net_write(socket: &Arc<Mutex<LocalComms>>, data: &[u8]) -> CommsResult<()> {
     if let Ok(socket) = socket.lock() {
         socket.write(data)
     } else {

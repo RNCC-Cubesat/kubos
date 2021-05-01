@@ -140,8 +140,8 @@ fn main() -> LocalCommsServiceResult<()> {
 
     // Control block to configure communication service.
     let controls = CommsControlBlock::new(
-        Some(Arc::new(read)),
-        vec![Arc::new(write)],
+        Some(Arc::new(net_read)),
+        vec![Arc::new(net_write)],
         conn.clone(),
         conn,
         config,
