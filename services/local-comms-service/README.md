@@ -47,3 +47,12 @@ When the service has started correctly it will display output like so:
 ```
 2019-05-23T09:46:10.216941589-05:00 INFO comms_service::service - Communication service started
 ```
+
+## Running
+as mentioned above, a configuration file is needed to tell the service what ports to use. a configuration file is located at `tools/local_config.toml` in the kubos repo that can be copy-pasted and edited to add the sections mentioned above to create `tools/local_comms.toml` (name doesnt matter as long as you're consistent).
+
+run without logging to stdout:
+`cargo run --bin local-comms-service -- -c tools/local_comms.toml`
+
+run with debug logging to stdout: `cargo run --bin local-comms-service -- --stdout -l debug -c tools/local_comms.toml`
+
