@@ -11,12 +11,14 @@ use comms_service::CommsResult;
 type Context = kubos_service::Context<Subsystem>;
 
 pub struct QueryRoot;
+use log::*;
 
 graphql_object!(QueryRoot: Context as "Query" |&self| {
     // Test query to verify service is running without attempting
     // to communicate with the underlying subsystem
     field ping() -> FieldResult<String>
     {
+        debug!("received ping");
         Ok(String::from("pong"))
     }
 

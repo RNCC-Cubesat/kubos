@@ -20,6 +20,7 @@ use comms_service::CommsResult;
 use failure::bail;
 use std::net::UdpSocket;
 use std::sync::{Arc, Mutex};
+use log::*;
 
 pub struct LocalComms {
     pub socket: UdpSocket,
@@ -48,8 +49,9 @@ impl LocalComms {
     }
 
     pub fn write(&self, data: &[u8]) -> CommsResult<()> {
-        self.socket
+        let result = self.socket
             .send_to(data, (self.gateway_ip.as_str(), self.gateway_port))?;
+        debug!("sent {} bytes", result);
         Ok(())
     }
 

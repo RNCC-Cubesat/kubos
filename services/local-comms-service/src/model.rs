@@ -8,6 +8,7 @@ use comms_service::CommsTelemetry;
 use crate::comms::LocalComms;
 
 use std::sync::{Arc, Mutex};
+use log::*;
 
 #[derive(Clone)]
 pub struct Subsystem {
