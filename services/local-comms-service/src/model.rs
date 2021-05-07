@@ -58,11 +58,11 @@ impl Subsystem {
         }
     }
 
-    pub fn get_alive(&self) -> Result<bool, String> {
-        match self.local.lock() {
-            Ok(local) => Ok(local.socket.get_alive().map_err(|e| e.to_string())?),
-            Err(_) => Err("Failed to lock local".to_owned()),
-        }
-    }
+    // pub fn get_alive(&self) -> Result<bool, String> {
+    //     match self.local.lock() {
+    //         Ok(local) => Ok(local.socket.get_alive().map_err(|e| e.to_string())?),
+    //         Err(_) => Err("Failed to lock local".to_owned()),
+    //     }
+    // }
 
 }

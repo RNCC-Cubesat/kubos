@@ -74,10 +74,10 @@ graphql_object!(MutationRoot: Context as "Mutation" |&self| {
     //            },
     //     "errors" : ""
     // }
-    field noop(&executor) -> FieldResult<bool>
-    {
-        Ok(executor.context().subsystem().get_alive()?)
-    }
+    // field noop(&executor) -> FieldResult<bool>
+    // {
+    //     Ok(executor.context().subsystem().get_alive()?)
+    // }
     
     
 

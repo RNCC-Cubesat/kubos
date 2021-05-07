@@ -55,13 +55,13 @@ impl LocalComms {
         Ok(())
     }
 
-    pub fn get_alive(&self) -> CommsResult<bool> {
-        if let Ok(addr) = self.socket.local_addr().unwrap() {
-            return Ok(true)
-        } else {
-            return Ok(false)
-        }
-    }
+    // pub fn get_alive(&self) -> CommsResult<bool> {
+    //     if let Ok(addr) = self.socket.local_addr().unwrap() {
+    //         return Ok(true)
+    //     } else {
+    //         return Ok(false)
+    //     }
+    // }
 }
 
 // Function to allow reading from a UDP socket.
