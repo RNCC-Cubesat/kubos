@@ -143,7 +143,7 @@ fn main() -> LocalCommsServiceResult<()> {
         Some(Arc::new(net_read)),
         vec![Arc::new(net_write)],
         conn.clone(),
-        conn,
+        conn.clone(),
         config,
     )
     .map_err(|err| {
@@ -162,7 +162,7 @@ fn main() -> LocalCommsServiceResult<()> {
         },
     )?;
 
-    let subsystem = Subsystem::new(telem, conn.clone());
+    let subsystem = Subsystem::new(telem, conn);
     Service::new(service_config.clone(), subsystem, QueryRoot, MutationRoot).start();
 
     Ok(())
