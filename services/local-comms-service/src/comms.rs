@@ -66,10 +66,27 @@ impl LocalComms {
 
 // Function to allow reading from a UDP socket.
 pub fn net_read(socket: &Arc<Mutex<LocalComms>>) -> CommsResult<Vec<u8>> {
+    debug!("READING");
     if let Ok(socket) = socket.lock() {
-        socket.read()
+        debug!("locked and loaded");
+        let res = socket.read(); // program will wait here until it received a message
+        vec_to_str(&res);
+        res
     } else {
+        debug!("Failed to lock socket");
         bail!("Failed to lock socket")
+    }
+}
+
+fn vec_to_str(buf: &CommsResult<Vec<u8>>) {
+    if let Ok(res2) = buf {
+            
+        let s = match str::from_utf8(res2.as_slice()) {
+            Ok(v) => v,
+            Err(e) => panic!("Invalid UTF-8 sequence: {}", e),
+        };
+
+        debug!("result: {}", s);
     }
 }
 
