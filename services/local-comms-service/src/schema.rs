@@ -5,6 +5,8 @@
 
 use juniper::FieldResult;
 use crate::model::Subsystem;
+use crate::comms::*;
+use comms_service::CommsResult;
 
 type Context = kubos_service::Context<Subsystem>;
 
