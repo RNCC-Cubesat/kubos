@@ -93,6 +93,7 @@ fn vec_to_str(buf: &CommsResult<Vec<u8>>) {
 // Function to allow writing over a UDP socket.
 pub fn net_write(socket: &Arc<Mutex<LocalComms>>, data: &[u8]) -> CommsResult<()> {
     if let Ok(socket) = socket.lock() {
+        debug!("writing data: {}", String::from_utf8_lossy(data));
         socket.write(data)
     } else {
         bail!("Failed to lock socket")
