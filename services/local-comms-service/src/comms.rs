@@ -70,7 +70,7 @@ pub fn net_read(socket: &Arc<Mutex<LocalComms>>) -> CommsResult<Vec<u8>> {
     if let Ok(socket) = socket.lock() {
         debug!("locked and loaded");
         let res = socket.read(); // program will wait here until it received a message
-        vec_to_str(&res);
+        // vec_to_str(&res);
         res
     } else {
         debug!("Failed to lock socket");
