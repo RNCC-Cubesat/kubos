@@ -81,7 +81,7 @@ pub fn net_read(socket: &Arc<Mutex<LocalComms>>) -> CommsResult<Vec<u8>> {
 fn vec_to_str(buf: &CommsResult<Vec<u8>>) {
     if let Ok(res2) = buf {
             
-        let s = match str::from_utf8(res2.as_slice()) {
+        let s = match std::str::from_utf8(res2.as_slice()) {
             Ok(v) => v,
             Err(e) => panic!("Invalid UTF-8 sequence: {}", e),
         };
