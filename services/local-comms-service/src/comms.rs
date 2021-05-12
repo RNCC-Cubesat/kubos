@@ -21,6 +21,7 @@ use failure::bail;
 use std::net::UdpSocket;
 use std::sync::{Arc, Mutex};
 use log::*;
+use std::time::Duration;
 
 pub struct LocalComms {
     pub socket: UdpSocket,
@@ -36,6 +37,8 @@ impl LocalComms {
         gateway_port: u16,
     ) -> CommsResult<Self> {
         let socket = UdpSocket::bind((listening_ip, listening_port))?;
+        socket.set_read_timeout(Some(Duration::new(5, 0))).expect("error setting read timeout");// 5 second timeout
+
         Ok(LocalComms {
             socket,
             gateway_ip: gateway_ip.to_owned(),
