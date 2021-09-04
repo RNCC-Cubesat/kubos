@@ -66,6 +66,7 @@ members=[
 "clients/kubos-shell-client",
 "clients/uart-comms-client",
 "examples/rust-mission-app",
+"examples/rust-joey-mission-app",
 "examples/rust-service",
 "examples/serial-comms-service",
 "examples/udp-service-client",
