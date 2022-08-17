@@ -2,6 +2,10 @@ KubOS
 [![CircleCI](https://circleci.com/gh/kubos/kubos.svg?style=svg)](https://circleci.com/gh/kubos/kubos)
 =========
 
+*__Note:__ you are on the `examples` branch of this repo. This branch contains the completed
+[Creating Your First Mission Application](https://docs.kubos.com/1.21.0/tutorials/first-mission-app.html) tutorial in both Python and
+Rust. If you are following that tutorial, you can use this branch as a reference.*
+
 KubOS is an open-source software stack for satellites.
 
 The KubOS system is designed to take care of every aspect of a satellite’s flight
